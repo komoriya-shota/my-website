@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夢有民牧場クラウドファンディング</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">夢有民牧場クラウドファンディング</h1>
+            <nav>
+                <a href="index.html" class="text-gray-600 hover:text-gray-800 mx-2">ホーム</a>
+                <a href="about.html" class="text-gray-600 hover:text-gray-800 mx-2">概要</a>
+                <a href="contact.html" class="text-gray-600 hover:text-gray-800 mx-2">連絡先</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-6">
+        <section class="mb-8">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="images/image1.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="images/image2.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="images/image3.jpg" style="width:100%">
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+            <h2 class="text-xl font-bold mt-4">沖縄の思い出の場所を守りたい！<br>お馬たちの命と居場所を守り、一緒に『夢有民牧場』の未来を作りませんか？</h2>
+            <div class="mt-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" onclick="location.href='support.html'">支援する</button>
+                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600" onclick="openModal('shareModal')">シェアする</button>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="text-lg font-bold mb-4">進捗状況</h3>
+            <div class="progress-container">
+                <div class="progress-details">
+                    <div class="progress-total">¥ 現在の支援総額</div>
+                    <div class="progress-amount">1,229,700円</div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 40%;"></div>
+                    </div>
+                    <div class="progress-goal">目標金額は3,000,000円</div>
+                    <div class="progress-supporters"><i class="fas fa-user"></i> 支援者数 126人</div>
+                    <div class="progress-days"><i class="fas fa-clock"></i> 募集終了まで残り 38日</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="text-lg font-bold mb-4">プロジェクト概要</h3>
+            <p class="text-gray-600">
+                沖縄の美しい自然に囲まれた『夢有民牧場』は、訪れるすべての人々に素晴らしい思い出を提供してきました。しかし、今この大切な場所が存続の危機に瀕しています。私たちは、牧場で暮らすお馬たちの命と居場所を守り、未来を築くために、皆さんの温かいご支援を必要としています！
+                <br><br>
+                牧場では、訪れる方々が馬と触れ合い、癒しと学びを得ることができます。特に、子どもたちにとっては、自然との触れ合いや動物との交流を通じて、かけがえのない貴重な体験が得られる場所です。しかし、運営資金の不足や施設の老朽化により、牧場の存続が危ぶまれています。。。
+                <br><br>
+                <strong>具体的な支援目標</strong>
+                <br>
+                私たちは、クラウドファンディングを通じて3,000,000円を目指しています。この資金は以下のように活用されます：
+                <ul class="list-disc ml-6 mt-2">
+                    <li>施設の修繕：2,000,000円</li>
+                    <li>新しい馬の導入：1,000,000円</li>
+                </ul>
+                <br>
+                <strong>夢有民牧場の未来を守るために</strong>
+                <br>
+                『夢有民牧場』がこれからも多くの人々に愛され、沖縄の宝として輝き続けるために、どうかお力をお貸しください！皆さんの温かいご支援が、牧場の未来を守る大きな力となります。共に『夢有民牧場』の新しい未来を創り上げていきましょう！
+                <br><br>
+                <strong>特別なストーリー</strong>
+                <br>
+                ここで、私たちの牧場で育った馬、サクラのストーリーを紹介させてください。サクラは子どもたちに大人気で、その優しい性格と美しい姿が多くの人々に愛されています。サクラと触れ合った子どもたちは、自然の中でのびのびとした時間を過ごし、動物との絆を深めています。しかし、施設の老朽化により、サクラの居場所が危ぶまれています。。。サクラを守り、次の世代にこの素晴らしい体験を引き継ぐために、皆さんのご支援が必要です！
+                <br><br>
+                <strong>実際の雰囲気</strong>
+                <br>
+                ぜひ、以下のリンクから牧場の写真やビデオをご覧ください。美しい自然に囲まれた牧場の風景や、かわいい動物たちの姿をご覧いただけます！これらのビジュアルは、牧場の魅力をより一層感じていただけることでしょう。
+                <br><br>
+                <strong>皆さんと共に</strong>
+                <br>
+                私たちの夢有民牧場は、ただの場所ではありません。それは笑顔と癒し、そして学びの場です。訪れる人々の笑顔を守り、未来の世代にもこの素晴らしい体験を届けるために、どうかお力をお貸しください！皆さんのご支援が、牧場の未来を築くための大きな力となります。共に、夢有民牧場の新しい未来を創り上げていきましょう。どうぞよろしくお願いいたします！
+            </p>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="text-lg font-bold mb-4">リターンについて</h3>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <img src="https://source.unsplash.com/random/800x400" alt="リターン画像" class="w-full h-64 object-cover rounded-lg mb-4">
+                <h4 class="text-md font-bold mb-2">リターンの内容</h4>
+                <p class="text-gray-600">ご支援いただいた方々には、心から感謝申し上げます。皆様の温かいご支援がなければ、牧場の未来を守ることはできません。ご支援いただいた方々には、感謝の気持ちとして特別なリワードをご用意しています。例えば、サクラとの記念撮影や牧場の特製グッズなど、多くのリワードをご用意しております。</p>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="text-lg font-bold mb-4">チーム紹介</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="images/image4.jpg" alt="チーム画像1" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h4 class="text-md font-bold mb-2">チームメンバー1</h4>
+                    <p class="text-gray-600">チームメンバー1の紹介文です。彼/彼女の経歴や役割について記載します。</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="images/image5.jpg" alt="チーム画像2" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h4 class="text-md font-bold mb-2">チームメンバー2</h4>
+                    <p class="text-gray-600">チームメンバー2の紹介文です。彼/彼女の経歴や役割について記載します。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="text-lg font-bold mb-4">コメント</h3>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <form id="commentForm" class="mb-4">
+                    <textarea id="commentText" class="w-full p-2 rounded border" rows="4" placeholder="コメントを入力してください"></textarea>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-2 hover:bg-blue-600">コメントを投稿</button>
+                </form>
+                <div id="commentsList">
+                    <!-- コメントリストがここに追加されます -->
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="text-lg font-bold mb-4">よくある質問</h3>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h4 class="text-md font-bold mb-2">Q1: 支援する方法は？</h4>
+                <p class="text-gray-600 mb-4">支援するボタンを押して、支援額を入力し、支払い情報を入力してください。</p>
+                <h4 class="text-md font-bold mb-2">Q2: 支援金の使い道は？</h4>
+                <p class="text-gray-600">支援金は主に施設の修繕と新しい馬の導入に使われます。</p>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="text-lg font-bold mb-4">活動報告</h3>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h4 class="text-md font-bold mb-2">最新の活動報告</h4>
+                <p class="text-gray-600 mb-4">ここに最新の活動報告が表示されます。</p>
+                <!-- 追加の活動報告があればここに表示 -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white shadow mt-8">
+        <div class="container mx-auto px-4 py-6 text-center">
+            <p class="text-gray-600">&copy; 2023 夢有民牧場クラウドファンディング. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- モーダルのHTML -->
+    <div id="supportModal" class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center opacity-0 pointer-events-none">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+        <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+            <div class="modal-content py-4 text-left px-6">
+                <div class="flex justify-between items-center pb-3">
+                    <p class="text-2xl font-bold">支援する</p>
+                    <div class="modal-close cursor-pointer z-50" onclick="closeModal('supportModal')">
+                        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                            <path d="M14.53 4.53L10.06 9l4.47 4.47-1.06 1.06L9 10.06l-4.47 4.47-1.06-1.06L7.94 9 3.47 4.53l1.06-1.06L9 7.94l4.47-4.47z"/>
+                        </svg>
+                    </div>
+                </div>
+                <form id="supportForm">
+                    <div class="mb-4">
+                        <label for="amount" class="block text-gray-700">支援額</label>
+                        <input type="number" id="amount" class="w-full p-2 border rounded" placeholder="支援額を入力">
+                    </div>
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700">お名前</label>
+                        <input type="text" id="name" class="w-full p-2 border rounded" placeholder="お名前を入力">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700">メールアドレス</label>
+                        <input type="email" id="email" class="w-full p-2 border rounded" placeholder="メールアドレスを入力">
+                    </div>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">支援を送信</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="shareModal" class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center opacity-0 pointer-events-none">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+        <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+            <div class="modal-content py-4 text-left px-6">
+                <div class="flex justify-between items-center pb-3">
+                    <p class="text-2xl font-bold">シェアする</p>
+                    <div class="modal-close cursor-pointer z-50" onclick="closeModal('shareModal')">
+                        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                            <path d="M14.53 4.53L10.06 9l4.47 4.47-1.06 1.06L9 10.06l-4.47 4.47-1.06-1.06L7.94 9 3.47 4.53l1.06-1.06L9 7.94l4.47-4.47z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full" onclick="shareOnSNS('twitter')">Twitterでシェア</button>
+                </div>
+                <div class="mb-4">
+                    <button class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 w-full" onclick="shareOnSNS('facebook')">Facebookでシェア</button>
+                </div>
+                <div class="mb-4">
+                    <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full" onclick="shareOnSNS('line')">LINEでシェア</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

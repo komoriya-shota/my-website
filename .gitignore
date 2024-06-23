@@ -1,0 +1,30 @@
+# Node.js プロジェクトの場合
+
+# Node modules
+node_modules/
+
+# ログファイル
+logs
+*.log
+npm-debug.log*
+
+# 環境設定ファイル
+.env
+
+# ビルドファイル
+dist/
+build/
+
+# 一時ファイル
+*.tmp
+*.swp
+
+# OS 固有のファイル
+.DS_Store
+Thumbs.db
+
+# IDE/エディタ固有のファイル
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

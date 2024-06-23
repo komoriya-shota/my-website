@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>連絡先 - 夢有民牧場クラウドファンディング</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">夢有民牧場クラウドファンディング</h1>
+            <nav>
+                <a href="index.html" class="text-gray-600 hover:text-gray-800 mx-2">ホーム</a>
+                <a href="about.html" class="text-gray-600 hover:text-gray-800 mx-2">概要</a>
+                <a href="contact.html" class="text-gray-600 hover:text-gray-800 mx-2">連絡先</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-6">
+        <section class="mb-8">
+            <h2 class="text-xl font-bold mb-4">連絡先</h2>
+            <form id="contactForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700">名前:</label>
+                    <input type="text" id="name" name="name" class="mt-1 p-2 w-full border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700">メールアドレス:</label>
+                    <input type="email" id="email" name="email" class="mt-1 p-2 w-full border rounded" required>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700">メッセージ:</label>
+                    <textarea id="message" name="message" class="mt-1 p-2 w-full border rounded" required></textarea>
+                </div>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">送信</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-white shadow mt-8">
+        <div class="container mx-auto px-4 py-6 text-center">
+            <p class="text-gray-600">&copy; 2023 夢有民牧場クラウドファンディング. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            fetch('http://localhost:3000/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.status === 'success') {
+                    alert(result.message);
+                } else {
+                    throw new Error(result.message);
+                }
+            })
+            .catch(error => {
+                console.error('エラー:', error);
+                alert('エラーが発生しました。コンソールを確認してください。');
+            });
+        });
+    </script>
+</body>
+</html>
