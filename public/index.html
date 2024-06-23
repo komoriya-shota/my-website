@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>夢有民牧場クラウドファンディング</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body class="bg-gray-100 text-gray-800">
     <header class="bg-white shadow">
@@ -35,10 +33,11 @@
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
+            <br>
             <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span> 
-                <span class="dot" onclick="currentSlide(2)"></span> 
-                <span class="dot" onclick="currentSlide(3)"></span> 
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
             </div>
             <h2 class="text-xl font-bold mt-4">沖縄の思い出の場所を守りたい！<br>お馬たちの命と居場所を守り、一緒に『夢有民牧場』の未来を作りませんか？</h2>
             <div class="mt-4">
@@ -51,14 +50,13 @@
             <h3 class="text-lg font-bold mb-4">進捗状況</h3>
             <div class="progress-container">
                 <div class="progress-details">
-                    <div class="progress-total">¥ 現在の支援総額</div>
-                    <div class="progress-amount">1,229,700円</div>
+                    <p class="progress-amount">¥1,229,700</p>
                     <div class="progress-bar">
                         <div class="progress-bar-fill" style="width: 40%;"></div>
                     </div>
-                    <div class="progress-goal">目標金額は3,000,000円</div>
-                    <div class="progress-supporters"><i class="fas fa-user"></i> 支援者数 126人</div>
-                    <div class="progress-days"><i class="fas fa-clock"></i> 募集終了まで残り 38日</div>
+                    <p>目標金額は3,000,000円</p>
+                    <p class="progress-supporters"><span>支援者数:</span> 126人</p>
+                    <p class="progress-days"><span>募集終了まで残り:</span> 38日</p>
                 </div>
             </div>
         </section>
@@ -217,6 +215,6 @@
         </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <script src="scripts/scripts.js"></script>
 </body>
 </html>
