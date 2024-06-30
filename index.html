@@ -10,6 +10,9 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
+            background-image: url('public/images/okinawa-background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
         }
 
         .progress-container {
@@ -22,20 +25,51 @@
                 width: 100%;
             }
         }
+
+        .navbar {
+            background: linear-gradient(90deg, rgba(255, 183, 77, 1) 0%, rgba(255, 138, 101, 1) 100%);
+            color: white;
+        }
+
+        .navbar a {
+            color: white;
+            font-weight: bold;
+        }
+
+        .slideshow-container img {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn {
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        .modal-container {
+            border-radius: 10px;
+        }
+
+        .modal-content {
+            background: linear-gradient(90deg, rgba(255, 183, 77, 1) 0%, rgba(255, 138, 101, 1) 100%);
+            color: white;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
     <header class="bg-white shadow">
         <div class="container mx-auto px-4 py-6 flex justify-between items-center">
             <h1 class="text-2xl font-bold">#沖縄の『ムーミン牧場』を救いたい！</h1>
-            <nav>
-                <a href="index.html" class="text-gray-600 hover:text-gray-800 mx-2">ホーム</a>
-                <a href="about.html" class="text-gray-600 hover:text-gray-800 mx-2">概要</a>
-                <a href="contact.html" class="text-gray-600 hover:text-gray-800 mx-2">連絡先</a>
-            </nav>
         </div>
     </header>
-
+    <nav class="navbar flex justify-end p-4 rounded-lg shadow-md">
+        <a href="index.html" class="hover:text-gray-200 mx-2">ホーム</a>
+        <a href="about.html" class="hover:text-gray-200 mx-2">概要</a>
+        <a href="contact.html" class="hover:text-gray-200 mx-2">連絡先</a>
+    </nav>
     <main class="container mx-auto px-4 py-6">
         <section class="mb-8">
             <div class="slideshow-container">
@@ -71,21 +105,25 @@
             </div>
             <h2 class="text-xl font-bold mt-4">沖縄の思い出の場所を守りたい！<br>お馬たちの命と居場所を守り、一緒に『夢有民牧場』の未来を作りませんか？</h2>
             <div class="mt-4">
-                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" onclick="location.href='support.html'">支援する</button>
-                <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600" onclick="openModal('shareModal')">シェアする</button>
+                <button class="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" onclick="location.href='support.html'">支援する</button>
+                <button class="btn bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600" onclick="openModal('shareModal')">シェアする</button>
             </div>
         </section>
 
         <section class="mb-8">
-            <h3 class="text-lg font-bold mb-4">進捗状況</h3>
-            <div class="progress-container">
-                <div class="progress-details">
-                    <div class="progress-amount">¥1,229,700</div>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 40%;">40%</div>
+            <h3 class="text-lg font-bold mb-4">～進捗状況～</h3>
+            <div class="progress-container bg-white p-6 rounded-lg shadow-lg relative">
+                <div class="progress-details text-center">
+                    <div class="text-lg text-gray-700 font-bold mb-2">現在の支援金額</div>
+                    <div class="text-5xl font-bold text-green-700 mb-2">¥1,229,700</div>
+                    <div class="text-lg text-gray-700 mb-4 text-right">募集終了まで残り: 38日</div>
+                    <div class="progress-bar bg-gray-200 rounded-full h-6 mb-4 relative">
+                        <div class="progress-bar-fill bg-green-500 h-6 rounded-full text-white text-center" style="width: 40%;">40%</div>
                     </div>
-                    <div class="progress-supporters">支援者数: 126人</div>
-                    <div class="progress-days">募集終了まで残り: 38日</div>
+                    <div class="flex justify-between text-gray-700 mt-2">
+                        <div class="text-lg">目標金額: ¥5,000,000</div>
+                        <div class="text-lg">支援者数: 126人</div>
+                    </div>
                 </div>
             </div>
         </section>

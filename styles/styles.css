@@ -43,8 +43,13 @@ body.modal-active {
 /* メイン画像のスライド */
 .mySlides {
     display: none;
+    animation: fade 1.5s ease-in-out;
 }
 
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
 .main-image {
     width: 100%;
     height: auto;
@@ -86,6 +91,7 @@ body.modal-active {
     background-color: #f9f9f9;
     border-top: 2px solid #ddd;
 }
+
 
 /* サムネイル画像 */
 .thumbnail {
