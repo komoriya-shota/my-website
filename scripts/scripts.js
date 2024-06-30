@@ -55,6 +55,8 @@ document.getElementById('commentForm').addEventListener('submit', function(event
     document.getElementById('commentText').value = '';
 });
 
+
+
 function shareOnSNS(platform) {
     const url = window.location.href;
     let shareURL = '';
@@ -67,3 +69,5 @@ function shareOnSNS(platform) {
     }
     window.open(shareURL, '_blank');
 }
+
+
