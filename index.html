@@ -27,7 +27,7 @@
 <body class="bg-gray-100 text-gray-800">
     <header class="bg-white shadow">
         <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">夢有民牧場クラウドファンディング</h1>
+            <h1 class="text-2xl font-bold">#沖縄の『ムーミン牧場』を救いたい！</h1>
             <nav>
                 <a href="index.html" class="text-gray-600 hover:text-gray-800 mx-2">ホーム</a>
                 <a href="about.html" class="text-gray-600 hover:text-gray-800 mx-2">概要</a>
@@ -40,27 +40,34 @@
         <section class="mb-8">
             <div class="slideshow-container">
                 <div class="mySlides fade">
-                    <img src="images/image1.jpg" style="width:50%">
+                    <img src="public/images/image1.jpg" style="width:100%">
                 </div>
                 <div class="mySlides fade">
-                    <img src="images/image2.jpg" style="width:50%">
+                    <img src="public/images/image2.jpg" style="width:100%">
                 </div>
                 <div class="mySlides fade">
-                    <img src="images/image3.jpg" style="width:50%">
+                    <img src="public/images/image3.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="public/images/image4.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="public/images/image5.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="public/images/image6.jpg" style="width:100%">
                 </div>
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
-            <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span> 
-                <span class="dot" onclick="currentSlide(2)"></span> 
-                <span class="dot" onclick="currentSlide(3)"></span> 
-            </div>
-            
-            <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
+            <br>
+            <div class="thumbnail-container">
+                <img class="thumbnail" src="public/images/image1.jpg" onclick="currentSlide(1)">
+                <img class="thumbnail" src="public/images/image2.jpg" onclick="currentSlide(2)">
+                <img class="thumbnail" src="public/images/image3.jpg" onclick="currentSlide(3)">
+                <img class="thumbnail" src="public/images/image4.jpg" onclick="currentSlide(4)">
+                <img class="thumbnail" src="public/images/image5.jpg" onclick="currentSlide(5)">
+                <img class="thumbnail" src="public/images/image6.jpg" onclick="currentSlide(6)">
             </div>
             <h2 class="text-xl font-bold mt-4">沖縄の思い出の場所を守りたい！<br>お馬たちの命と居場所を守り、一緒に『夢有民牧場』の未来を作りませんか？</h2>
             <div class="mt-4">
@@ -129,12 +136,12 @@
             <h3 class="text-lg font-bold mb-4">チーム紹介</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-white p-4 rounded-lg shadow">
-                    <img src="images/image4.jpg" alt="チーム画像1" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <img src="public/images/image4.jpg" alt="チーム画像1" class="w-full h-48 object-cover rounded-lg mb-4">
                     <h4 class="text-md font-bold mb-2">チームメンバー1</h4>
                     <p class="text-gray-600">チームメンバー1の紹介文です。彼/彼女の経歴や役割について記載します。</p>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow">
-                    <img src="images/image5.jpg" alt="チーム画像2" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <img src="public/images/image5.jpg" alt="チーム画像2" class="w-full h-48 object-cover rounded-lg mb-4">
                     <h4 class="text-md font-bold mb-2">チームメンバー2</h4>
                     <p class="text-gray-600">チームメンバー2の紹介文です。彼/彼女の経歴や役割について記載します。</p>
                 </div>
@@ -238,5 +245,76 @@
     </div>
 
     <script src="scripts/scripts.js"></script>
+    <script>
+        function openModal(modalID) {
+            document.getElementById(modalID).classList.remove('opacity-0');
+            document.getElementById(modalID).classList.add('opacity-100');
+            document.getElementById(modalID).classList.remove('pointer-events-none');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeModal(modalID) {
+            document.getElementById(modalID).classList.remove('opacity-100');
+            document.getElementById(modalID).classList.add('opacity-0');
+            document.getElementById(modalID).classList.add('pointer-events-none');
+            document.body.classList.remove('modal-active');
+        }
+
+        let slideIndex = 0;
+        showSlides();
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+
+        document.getElementById('commentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const commentText = document.getElementById('commentText').value;
+            const commentList = document.getElementById('commentsList');
+            const newComment = document.createElement('div');
+            newComment.classList.add('bg-gray-100', 'p-2', 'rounded', 'mb-2');
+            
+            // ユーザー名と時間を取得
+            const userName = '匿名ユーザー'; // 将来的にはログインしたユーザーの名前を取得
+            const currentTime = new Date().toLocaleString();
+            
+            newComment.innerHTML = `<p><strong>${userName}</strong> (${currentTime})</p><p>${commentText}</p>`;
+            commentList.appendChild(newComment);
+            document.getElementById('commentText').value = '';
+        });
+
+        function shareOnSNS(platform) {
+            const url = window.location.href;
+            let shareURL = '';
+            if (platform === 'twitter') {
+                shareURL = `https://twitter.com/share?url=${encodeURIComponent(url)}`;
+            } else if (platform === 'facebook') {
+                shareURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            } else if (platform === 'line') {
+                shareURL = `https://line.me/R/msg/text/?${encodeURIComponent(url)}`;
+            }
+            window.open(shareURL, '_blank');
+        }
+    </script>
 </body>
 </html>

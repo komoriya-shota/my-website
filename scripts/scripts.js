@@ -12,8 +12,8 @@ function closeModal(modalID) {
     document.body.classList.remove('modal-active');
 }
 
-let slideIndex = 0;
-showSlides();
+let slideIndex = 1;
+showSlides(slideIndex);
 
 function plusSlides(n) {
     showSlides(slideIndex += n);
@@ -26,17 +26,17 @@ function currentSlide(n) {
 function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
+    let thumbnails = document.getElementsByClassName("thumbnail");
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
+        slides[i].style.display = "none";
     }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
+    for (i = 0; i < thumbnails.length; i++) {
+        thumbnails[i].className = thumbnails[i].className.replace(" active-thumbnail", "");
     }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
+    slides[slideIndex-1].style.display = "block";
+    thumbnails[slideIndex-1].className += " active-thumbnail";
 }
 
 document.getElementById('commentForm').addEventListener('submit', function(event) {
