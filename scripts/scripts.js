@@ -12,6 +12,8 @@ function closeModal(modalID) {
     document.body.classList.remove('modal-active');
 }
 
+let slideIndex = 1;
+showSlides(slideIndex);
 let slideIndex = 0;
 showSlides();
 
@@ -23,10 +25,13 @@ function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 
+function showSlides(n) {
 function showSlides() {
     let i;
     let slides = document.getElementsByClassName("mySlides");
     let thumbnails = document.getElementsByClassName("thumbnail");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
@@ -58,7 +63,6 @@ document.getElementById('commentForm').addEventListener('submit', function(event
 });
 
 
-
 function shareOnSNS(platform) {
     const url = window.location.href;
     let shareURL = '';
@@ -71,5 +75,3 @@ function shareOnSNS(platform) {
     }
     window.open(shareURL, '_blank');
 }
-
-
