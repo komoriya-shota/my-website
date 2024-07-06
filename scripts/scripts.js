@@ -12,10 +12,8 @@ function closeModal(modalID) {
     document.body.classList.remove('modal-active');
 }
 
-let slideIndex = 1;
-showSlides(slideIndex);
 let slideIndex = 0;
-showSlides();
+showSlides(slideIndex);
 
 function plusSlides(n) {
     showSlides(slideIndex += n);
@@ -26,7 +24,6 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-function showSlides() {
     let i;
     let slides = document.getElementsByClassName("mySlides");
     let thumbnails = document.getElementsByClassName("thumbnail");
@@ -42,13 +39,16 @@ function showSlides() {
     }
     slides[slideIndex-1].style.display = "block";
     thumbnails[slideIndex-1].className += " active-thumbnail";
-    setTimeout(showSlides, 5000); // Change image every 5 seconds
+    setTimeout(() => showSlides(slideIndex), 5000); // Change image every 5 seconds
 }
-
 
 document.getElementById('commentForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const commentText = document.getElementById('commentText').value;
+    if (commentText.trim() === '') {
+        alert('コメントを入力してください。');
+        return;
+    }
     const commentList = document.getElementById('commentsList');
     const newComment = document.createElement('div');
     newComment.classList.add('bg-gray-100', 'p-2', 'rounded', 'mb-2');
@@ -61,7 +61,6 @@ document.getElementById('commentForm').addEventListener('submit', function(event
     commentList.appendChild(newComment);
     document.getElementById('commentText').value = '';
 });
-
 
 function shareOnSNS(platform) {
     const url = window.location.href;
