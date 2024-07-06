@@ -52,11 +52,11 @@ document.getElementById('commentForm').addEventListener('submit', function(event
     const commentList = document.getElementById('commentsList');
     const newComment = document.createElement('div');
     newComment.classList.add('bg-gray-100', 'p-2', 'rounded', 'mb-2');
-    
+
     // ユーザー名と時間を取得
     const userName = '匿名ユーザー'; // 将来的にはログインしたユーザーの名前を取得
     const currentTime = new Date().toLocaleString();
-    
+
     newComment.innerHTML = `<p><strong>${userName}</strong> (${currentTime})</p><p>${commentText}</p>`;
     commentList.appendChild(newComment);
     document.getElementById('commentText').value = '';

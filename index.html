@@ -95,6 +95,34 @@
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
             <br>
+            <script>
+                let slideIndex = 0;
+                let slideInterval;
+
+                function plusSlides(n) {
+                    clearInterval(slideInterval);
+                    showSlides(slideIndex += n);
+                }
+
+                function currentSlide(n) {
+                    clearInterval(slideInterval);
+                    showSlides(slideIndex = n);
+                }
+
+                function showSlides(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("mySlides");
+                    if (n > slides.length) {slideIndex = 1}
+                    if (n < 1) {slideIndex = slides.length}
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    slides[slideIndex-1].style.display = "block";
+                    slideInterval = setInterval(() => plusSlides(1), 5000); // Change image every 5 seconds
+                }
+
+                showSlides(slideIndex);
+            </script>
             <div class="thumbnail-container">
                 <img class="thumbnail" src="public/images/image1.jpg" onclick="currentSlide(1)">
                 <img class="thumbnail" src="public/images/image2.jpg" onclick="currentSlide(2)">
@@ -114,11 +142,12 @@
             <h3 class="text-lg font-bold mb-4">進捗状況</h3>
             <div class="progress-container bg-white p-6 rounded-lg shadow-lg relative">
                 <div class="progress-details text-center">
-                    <div class="text-2xl font-bold text-green-600 mb-2">¥1,229,700</div>
+                    <div class="text-lg font-bold text-gray-800">現在の支援金額</div>
+                    <div class="text-2xl font-bold text-green-600 mb-10">¥1,229,700</div>
+                    <div class="absolute top-0 right-0 text-lg text-gray-600 mt-14">募集終了まで残り: 38日</div>
                     <div class="progress-bar bg-gray-200 rounded-full h-6 mb-4 relative">
                         <div class="progress-bar-fill bg-green-500 h-6 rounded-full text-white text-center" style="width: 40%;">40%</div>
                     </div>
-                    <div class="absolute top-0 right-0 text-lg text-gray-700">募集終了まで残り: 38日</div>
                     <div class="flex justify-between text-gray-700 mt-2">
                         <div class="text-lg">目標金額: ¥5,000,000</div>
                         <div class="text-lg">支援者数: 126人</div>
@@ -330,7 +359,7 @@
             const commentList = document.getElementById('commentsList');
             const newComment = document.createElement('div');
             newComment.classList.add('bg-gray-100', 'p-2', 'rounded', 'mb-2');
-            
+        
             // ユーザー名と時間を取得
             const userName = '匿名ユーザー'; // 将来的にはログインしたユーザーの名前を取得
             const currentTime = new Date().toLocaleString();
