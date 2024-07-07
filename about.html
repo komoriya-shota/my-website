@@ -9,17 +9,88 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
+            background: #f0f4f8;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #ffb74d, #ff8a65);
+            color: white;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        main {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2, h3 {
+            color: #ff7043;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .highlight-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .highlight-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+        }
+
+        .highlight-item img {
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body>
     <header class="bg-white shadow">
         <div class="container mx-auto px-4 py-6 flex justify-between items-center">
             <h1 class="text-2xl font-bold">夢有民牧場クラウドファンディング</h1>
             <nav>
-                <a href="index.html" class="text-gray-600 hover:text-gray-800 mx-2">ホーム</a>
-                <a href="about.html" class="text-gray-600 hover:text-gray-800 mx-2">概要</a>
-                <a href="contact.html" class="text-gray-600 hover:text-gray-800 mx-2">連絡先</a>
+                <a href="index.html" class="hover:text-gray-200 mx-2">ホーム</a>
+                <a href="about.html" class="hover:text-gray-200 mx-2">概要</a>
+                <a href="contact.html" class="hover:text-gray-200 mx-2">連絡先</a>
             </nav>
         </div>
     </header>
@@ -29,55 +100,64 @@
             <h2 class="text-xl font-bold mb-4">プロジェクト概要</h2>
             <p class="text-gray-600">
                 沖縄の美しい自然に囲まれた『夢有民牧場』は、訪れるすべての人々に素晴らしい思い出を提供してきました。しかし、今この大切な場所が存続の危機に瀕しています。私たちは、牧場で暮らすお馬たちの命と居場所を守り、未来を築くために、皆さんの温かいご支援を必要としています！
-                <br><br>
-                牧場では、訪れる方々が馬と触れ合い、癒しと学びを得ることができます。特に、子どもたちにとっては、自然との触れ合いや動物との交流を通じて、かけがえのない貴重な体験が得られる場所です。しかし、運営資金の不足や施設の老朽化により、牧場の存続が危ぶまれています。。。
-                <br><br>
-                <strong>具体的な支援目標</strong>
-                <br>
-                私たちは、クラウドファンディングを通じて3,000,000円を目指しています。この資金は以下のように活用されます：
-                <ul class="list-disc ml-6 mt-2">
-                    <li>施設の修繕：2,000,000円</li>
-                    <li>新しい馬の導入：1,000,000円</li>
-                </ul>
-                <br>
-                <strong>夢有民牧場の未来を守るために</strong>
-                <br>
-                『夢有民牧場』がこれからも多くの人々に愛され、沖縄の宝として輝き続けるために、どうかお力をお貸しください！皆さんの温かいご支援が、牧場の未来を守る大きな力となります。共に『夢有民牧場』の新しい未来を創り上げていきましょう！
-                <br><br>
-                <strong>特別なストーリー</strong>
-                <br>
-                ここで、私たちの牧場で育った馬、サクラのストーリーを紹介させてください。サクラは子どもたちに大人気で、その優しい性格と美しい姿が多くの人々に愛されています。サクラと触れ合った子どもたちは、自然の中でのびのびとした時間を過ごし、動物との絆を深めています。しかし、施設の老朽化により、サクラの居場所が危ぶまれています。。。サクラを守り、次の世代にこの素晴らしい体験を引き継ぐために、皆さんのご支援が必要です！
-                <br><br>
-                <strong>実際の雰囲気</strong>
-                <br>
-                ぜひ、以下のリンクから牧場の写真やビデオをご覧ください。美しい自然に囲まれた牧場の風景や、かわいい動物たちの姿をご覧いただけます！これらのビジュアルは、牧場の魅力をより一層感じていただけることでしょう。
-                <br><br>
-                <strong>皆さんと共に</strong>
-                <br>
-                私たちの夢有民牧場は、ただの場所ではありません。それは笑顔と癒し、そして学びの場です。訪れる人々の笑顔を守り、未来の世代にもこの素晴らしい体験を届けるために、どうかお力をお貸しください！皆さんのご支援が、牧場の未来を築くための大きな力となります。共に、夢有民牧場の新しい未来を創り上げていきましょう。どうぞよろしくお願いいたします！
             </p>
-            <div class="mt-8">
-                <h3 class="text-lg font-bold mb-4">プロジェクトのハイライト</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-white p-4 rounded-lg shadow">
-                        <img src="images/highlight1.jpg" alt="ハイライト画像1" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-md font-bold mb-2">ハイライト1</h4>
-                        <p class="text-gray-600">ハイライト1の詳細説明文がここに入ります。</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg shadow">
-                        <img src="images/highlight2.jpg" alt="ハイライト画像2" class="w-full h-48 object-cover rounded-lg mb-4">
-                        <h4 class="text-md font-bold mb-2">ハイライト2</h4>
-                        <p class="text-gray-600">ハイライト2の詳細説明文がここに入ります。</p>
-                    </div>
-                </div>
+            <p class="text-gray-600">
+                牧場では、訪れる方々が馬と触れ合い、癒しと学びを得ることができます。特に、子どもたちにとっては、自然との触れ合いや動物との交流を通じて、かけがえのない貴重な体験が得られる場所です。しかし、運営資金の不足や施設の老朽化により、牧場の存続が危ぶまれています。
+            </p>
+            <h3 class="text-lg font-bold mt-4">具体的な支援目標</h3>
+            <ul class="text-gray-600">
+                <li>施設の修繕：2,000,000円</li>
+                <li>新しい馬の導入：1,000,000円</li>
+            </ul>
+            <h3 class="text-lg font-bold mt-4">夢有民牧場の未来を守るために</h3>
+            <p class="text-gray-600">
+                『夢有民牧場』がこれからも多くの人々に愛され、沖縄の宝として輝き続けるために、どうかお力をお貸しください！皆さんの温かいご支援が、牧場の未来を守る大きな力となります。共に『夢有民牧場』の新しい未来を創り上げていきましょう！
+            </p>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-xl font-bold mb-4">ハイライト</h2>
+            <div id="highlights" class="highlight-container">
+                <!-- ハイライト項目がここに追加されます -->
             </div>
         </section>
     </main>
 
-    <footer class="bg-white shadow mt-8">
-        <div class="container mx-auto px-4 py-6 text-center">
-            <p class="text-gray-600">&copy; 2023 夢有民牧場クラウドファンディング. All rights reserved.</p>
-        </div>
+    <footer>
+        <p>&copy; 2023 夢有民牧場クラウドファンディング. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const highlights = JSON.parse(localStorage.getItem('highlights')) || [];
+            const highlightsContainer = document.getElementById('highlights');
+            
+            highlights.forEach(highlight => {
+                const highlightItem = document.createElement('div');
+                highlightItem.className = 'highlight-item';
+                highlightItem.innerHTML = `
+                    <img src="${highlight.imageUrl}" alt="${highlight.title}">
+                    <h4 class="text-md font-bold mb-2">${highlight.title}</h4>
+                    <p class="text-gray-600">${highlight.description}</p>
+                `;
+                highlightsContainer.appendChild(highlightItem);
+            });
+        });
+    </script>
 </body>
 </html>
+<form id="contactForm">
+    <div class="form-group">
+        <label for="contactName">名前</label>
+        <input type="text" id="contactName" placeholder="名前を入力">
+    </div>
+    <div class="form-group">
+        <label for="contactEmail">メール</label>
+        <input type="email" id="contactEmail" placeholder="メールを入力">
+    </div>
+    <div class="form-group">
+        <label for="contactMessage">メッセージ</label>
+        <textarea id="contactMessage" rows="4" placeholder="メッセージを入力"></textarea>
+    </div>
+    <button type="submit">送信</button>
+</form>

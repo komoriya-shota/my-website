@@ -12,15 +12,18 @@ function closeModal(modalID) {
     document.body.classList.remove('modal-active');
 }
 
-let slideIndex = 0;
+let slideIndex = 1;
+let slideInterval;
 showSlides(slideIndex);
 
 function plusSlides(n) {
     showSlides(slideIndex += n);
+    resetSlideInterval();
 }
 
 function currentSlide(n) {
     showSlides(slideIndex = n);
+    resetSlideInterval();
 }
 
 function showSlides(n) {
@@ -32,15 +35,31 @@ function showSlides(n) {
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}
     for (i = 0; i < thumbnails.length; i++) {
-        thumbnails[i].className = thumbnails[i].className.replace(" active-thumbnail", "");
+        thumbnails[i].className = thumbnails[i].className.replace(" active", "");
     }
     slides[slideIndex-1].style.display = "block";
-    thumbnails[slideIndex-1].className += " active-thumbnail";
-    setTimeout(() => showSlides(slideIndex), 5000); // Change image every 5 seconds
+    thumbnails[slideIndex-1].className += " active";
 }
+function startSlideShow() {
+    slideInterval = setInterval(function() {
+        slideIndex++;
+        showSlides();
+    }, 5000);
+}
+
+function resetSlideInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(() => {
+        plusSlides(1);
+    }, 5000);
+}
+
+slideInterval = setInterval(() => {
+    plusSlides(1);
+}, 5000);
+showSlides();
+startSlideShow();
 
 document.getElementById('commentForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -74,3 +93,128 @@ function shareOnSNS(platform) {
     }
     window.open(shareURL, '_blank');
 }
+
+// 支援フォームの送信イベント
+document.getElementById('supportForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const amount = document.getElementById('amount').value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+
+    if (amount && name && email) {
+        fetch('http://localhost:3001/api/donations', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ amount, name, email })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('支援が完了しました！');
+            console.log(data);
+        })
+        .catch(error => {
+            alert('支援に失敗しました。');
+            console.error(error);
+        });
+    } else {
+        alert('全ての項目を入力してください。');
+    }
+});
+
+// お問い合わせフォームの送信イベント
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    const message = document.getElementById('contactMessage').value;
+
+    if (name && email && message) {
+        fetch('http://localhost:3001/api/contacts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email, message })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('お問い合わせを送信しました！');
+            console.log(data);
+        })
+        .catch(error => {
+            alert('お問い合わせの送信に失敗しました。');
+            console.error(error);
+        });
+    } else {
+        alert('全ての項目を入力してください。');
+    }
+});
+
+// お問い合わせ機能
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    const message = document.getElementById('contactMessage').value;
+
+    if (name && email && message) {
+        let inquiryHistory = JSON.parse(localStorage.getItem('inquiryHistory')) || [];
+        const newInquiry = { date: new Date().toLocaleString(), name, email, message };
+        inquiryHistory.push(newInquiry);
+        localStorage.setItem('inquiryHistory', JSON.stringify(inquiryHistory));
+        alert('お問い合わせを送信しました！');
+    } else {
+        alert('全ての項目を入力してください。');
+    }
+});
+document.getElementById('supportForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const amount = document.getElementById('amount').value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+
+    if (amount && name && email) {
+        const donation = {
+            date: new Date().toLocaleString(),
+            donor: name,
+            amount: `¥${amount}`
+        };
+
+        // ローカルストレージに保存
+        let donations = JSON.parse(localStorage.getItem('donations')) || [];
+        donations.push(donation);
+        localStorage.setItem('donations', JSON.stringify(donations));
+
+        alert('ご支援ありがとうございます！');
+    } else {
+        alert('全ての項目を入力してください。');
+    }
+});
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    const message = document.getElementById('contactMessage').value;
+
+    if (name && email && message) {
+        const contact = {
+            date: new Date().toLocaleString(),
+            name: name,
+            email: email,
+            message: message
+        };
+
+        // ローカルストレージに保存
+        let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+        contacts.push(contact);
+        localStorage.setItem('contacts', JSON.stringify(contacts));
+
+        alert('お問い合わせありがとうございます！');
+    } else {
+        alert('全ての項目を入力してください。');
+    }
+});
+

@@ -57,6 +57,29 @@
             background: linear-gradient(90deg, rgba(255, 183, 77, 1) 0%, rgba(255, 138, 101, 1) 100%);
             color: white;
         }
+
+        .thumbnail-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .thumbnail {
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin: 0 5px;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        .thumbnail img {
+            width: 100px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -91,45 +114,37 @@
                 <div class="mySlides fade">
                     <img src="public/images/image6.jpg" style="width:100%">
                 </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const slides = JSON.parse(localStorage.getItem('slides')) || [];
+                        const slideshowContainer = document.querySelector('.slideshow-container');
+                        slides.forEach((slide, index) => {
+                            const slideDiv = document.createElement('div');
+                            slideDiv.className = 'mySlides fade';
+                            slideDiv.innerHTML = `<img src="${slide.imageUrl}" style="width:100%">`;
+                            slideshowContainer.insertBefore(slideDiv, slideshowContainer.querySelector('.prev'));
+                            const thumbnail = document.createElement('img');
+                            thumbnail.className = 'thumbnail';
+                            thumbnail.src = `${slide.imageUrl}`;
+                            thumbnail.onclick = () => currentSlide(index + 1);
+                            document.querySelector('.thumbnail-container').appendChild(thumbnail);
+                        });
+                        showSlides(slideIndex);
+                    });
+                </script>
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
             <br>
-            <script>
-                let slideIndex = 0;
-                let slideInterval;
-
-                function plusSlides(n) {
-                    clearInterval(slideInterval);
-                    showSlides(slideIndex += n);
-                }
-
-                function currentSlide(n) {
-                    clearInterval(slideInterval);
-                    showSlides(slideIndex = n);
-                }
-
-                function showSlides(n) {
-                    let i;
-                    let slides = document.getElementsByClassName("mySlides");
-                    if (n > slides.length) {slideIndex = 1}
-                    if (n < 1) {slideIndex = slides.length}
-                    for (i = 0; i < slides.length; i++) {
-                        slides[i].style.display = "none";
-                    }
-                    slides[slideIndex-1].style.display = "block";
-                    slideInterval = setInterval(() => plusSlides(1), 5000); // Change image every 5 seconds
-                }
-
-                showSlides(slideIndex);
-            </script>
-            <div class="thumbnail-container">
+            <div class="thumbnail-container" style="text-align:center">
                 <img class="thumbnail" src="public/images/image1.jpg" onclick="currentSlide(1)">
                 <img class="thumbnail" src="public/images/image2.jpg" onclick="currentSlide(2)">
                 <img class="thumbnail" src="public/images/image3.jpg" onclick="currentSlide(3)">
                 <img class="thumbnail" src="public/images/image4.jpg" onclick="currentSlide(4)">
                 <img class="thumbnail" src="public/images/image5.jpg" onclick="currentSlide(5)">
                 <img class="thumbnail" src="public/images/image6.jpg" onclick="currentSlide(6)">
+            </div>
+
             </div>
             <h2 class="text-xl font-bold mt-4">沖縄の思い出の場所を守りたい！<br>お馬たちの命と居場所を守り、一緒に『夢有民牧場』の未来を作りませんか？</h2>
             <div class="mt-4">
@@ -139,12 +154,12 @@
         </section>
 
         <section class="mb-8">
-            <h3 class="text-lg font-bold mb-4">進捗状況</h3>
+            <h3 class="text-lg font-bold mb-4">～進捗状況～</h3>
             <div class="progress-container bg-white p-6 rounded-lg shadow-lg relative">
                 <div class="progress-details text-center">
-                    <div class="text-lg font-bold text-gray-800">現在の支援金額</div>
-                    <div class="text-2xl font-bold text-green-600 mb-10">¥1,229,700</div>
-                    <div class="absolute top-0 right-0 text-lg text-gray-600 mt-14">募集終了まで残り: 38日</div>
+                    <div class="text-lg text-gray-700 font-bold mb-2">現在の支援金額</div>
+                    <div class="text-5xl font-bold text-green-700 mb-2">¥1,229,700</div>
+                    <div class="text-lg text-gray-700 mb-4 text-right">募集終了まで残り: 38日</div>
                     <div class="progress-bar bg-gray-200 rounded-full h-6 mb-4 relative">
                         <div class="progress-bar-fill bg-green-500 h-6 rounded-full text-white text-center" style="width: 40%;">40%</div>
                     </div>
@@ -192,7 +207,7 @@
         <section class="mb-8">
             <h3 class="text-lg font-bold mb-4">リターンについて</h3>
             <div class="bg-white p-4 rounded-lg shadow">
-                <img src="public/images/image9.jpg" alt="リターン画像" class="w-full h-64 object-cover rounded-lg mb-4">
+                <img src="https://source.unsplash.com/random/800x400" alt="リターン画像" class="w-full h-64 object-cover rounded-lg mb-4">
                 <h4 class="text-md font-bold mb-2">リターンの内容</h4>
                 <p class="text-gray-600">ご支援いただいた方々には、心から感謝申し上げます。皆様の温かいご支援がなければ、牧場の未来を守ることはできません。ご支援いただいた方々には、感謝の気持ちとして特別なリワードをご用意しています。例えば、サクラとの記念撮影や牧場の特製グッズなど、多くのリワードをご用意しております。</p>
             </div>
@@ -266,21 +281,22 @@
                         </svg>
                     </div>
                 </div>
-                <form id="supportForm">
+                <form id="supportForm" action="insert_donation.php" method="post">
                     <div class="mb-4">
                         <label for="amount" class="block text-gray-700">支援額</label>
-                        <input type="number" id="amount" class="w-full p-2 border rounded" placeholder="支援額を入力">
+                        <input type="number" id="amount" name="amount" class="w-full p-2 border rounded" placeholder="支援額を入力">
                     </div>
                     <div class="mb-4">
                         <label for="name" class="block text-gray-700">お名前</label>
-                        <input type="text" id="name" class="w-full p-2 border rounded" placeholder="お名前を入力">
+                        <input type="text" id="name" name="donor" class="w-full p-2 border rounded" placeholder="お名前を入力">
                     </div>
                     <div class="mb-4">
                         <label for="email" class="block text-gray-700">メールアドレス</label>
-                        <input type="email" id="email" class="w-full p-2 border rounded" placeholder="メールアドレスを入力">
+                        <input type="email" id="email" name="email" class="w-full p-2 border rounded" placeholder="メールアドレスを入力">
                     </div>
                     <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">支援を送信</button>
                 </form>
+                
             </div>
         </div>
     </div>
@@ -327,31 +343,45 @@
         }
 
         let slideIndex = 0;
+        let slideInterval;
         showSlides();
 
         function plusSlides(n) {
             showSlides(slideIndex += n);
+            resetSlideInterval();
         }
 
         function currentSlide(n) {
             showSlides(slideIndex = n);
+            resetSlideInterval();
         }
 
         function showSlides(n) {
             let i;
             let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
+            let thumbnails = document.getElementsByClassName("thumbnail");
             if (n > slides.length) {slideIndex = 1}
             if (n < 1) {slideIndex = slides.length}
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
             }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
+            for (i = 0; i < thumbnails.length; i++) {
+                thumbnails[i].className = thumbnails[i].className.replace(" active", "");
             }
             slides[slideIndex-1].style.display = "block";
-            dots[slideIndex-1].className += " active";
+            thumbnails[slideIndex-1].className += " active";
         }
+
+        function resetSlideInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(() => {
+                plusSlides(1);
+            }, 5000);
+        }
+
+        slideInterval = setInterval(() => {
+            plusSlides(1);
+        }, 5000);
 
         document.getElementById('commentForm').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -359,7 +389,7 @@
             const commentList = document.getElementById('commentsList');
             const newComment = document.createElement('div');
             newComment.classList.add('bg-gray-100', 'p-2', 'rounded', 'mb-2');
-        
+            
             // ユーザー名と時間を取得
             const userName = '匿名ユーザー'; // 将来的にはログインしたユーザーの名前を取得
             const currentTime = new Date().toLocaleString();

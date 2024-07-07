@@ -3,75 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>支援フォーム - 夢有民牧場クラウドファンディング</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>支援フォーム</title>
+    <link rel="stylesheet" href="styles/styles.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #ffb74d, #ff8a65);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        main {
+            background: white;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input, textarea, button {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        button {
+            background: #ff8a65;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #ff7043;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-    <header class="bg-white shadow">
-        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">夢有民牧場クラウドファンディング</h1>
-            <nav>
-                <a href="index.html" class="text-gray-600 hover:text-gray-800 mx-2">ホーム</a>
-                <a href="about.html" class="text-gray-600 hover:text-gray-800 mx-2">概要</a>
-                <a href="contact.html" class="text-gray-600 hover:text-gray-800 mx-2">連絡先</a>
-            </nav>
-        </div>
+<body>
+    <header>
+        <h1>支援フォーム</h1>
     </header>
-
-    <main class="container mx-auto px-4 py-6">
-        <section class="mb-8">
-            <h2 class="text-xl font-bold mb-4">支援フォーム</h2>
-            <form id="supportForm">
-                <div class="mb-4">
-                    <label for="amount" class="block text-gray-700">支援額:</label>
-                    <input type="number" id="amount" name="amount" class="mt-1 p-2 w-full border rounded" required>
-                </div>
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700">名前:</label>
-                    <input type="text" id="name" name="name" class="mt-1 p-2 w-full border rounded" required>
-                </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-gray-700">メールアドレス:</label>
-                    <input type="email" id="email" name="email" class="mt-1 p-2 w-full border rounded" required>
-                </div>
-                <div class="mb-4">
-                    <label for="message" class="block text-gray-700">メッセージ:</label>
-                    <textarea id="message" name="message" class="mt-1 p-2 w-full border rounded" required></textarea>
-                </div>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">支援を送信</button>
-            </form>
-        </section>
+    <main>
+        <form id="supportForm" method="POST">
+            <label for="amount">支援額:</label>
+            <input type="number" id="amount" name="amount" required>
+            <label for="name">名前:</label>
+            <input type="text" id="name" name="donor" required>
+            <label for="email">メール:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">送信</button>
+        </form>
     </main>
-
     <script>
         document.getElementById('supportForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData.entries());
-            fetch('http://localhost:3000/support', {
+            const formData = {
+                amount: document.getElementById('amount').value,
+                donor: document.getElementById('name').value,
+                email: document.getElementById('email').value
+            };
+
+            fetch('/donations', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(formData)
             })
             .then(response => response.json())
-            .then(result => {
-                if (result.status === 'success') {
-                    alert(result.message);
-                } else {
-                    throw new Error(result.message);
-                }
+            .then(data => {
+                alert('支援が送信されました');
+                document.getElementById('supportForm').reset();
             })
             .catch(error => {
                 console.error('エラー:', error);
-                alert('エラーが発生しました。コンソールを確認してください。');
+                alert('支援の送信に失敗しました');
             });
         });
     </script>
