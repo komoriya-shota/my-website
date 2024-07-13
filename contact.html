@@ -24,6 +24,12 @@
             font-size: 1.5rem;
         }
 
+        nav a {
+            color: white;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
         main {
             background: white;
             max-width: 600px;
@@ -68,6 +74,11 @@
     <header>
         <h1>お問い合わせフォーム</h1>
     </header>
+    <nav class="navbar flex justify-end p-4 rounded-lg shadow-md">
+        <a href="index.html" class="hover:text-gray-200 mx-2">ホーム</a>
+        <a href="about.html" class="hover:text-gray-200 mx-2">概要</a>
+        <a href="contact.html" class="hover:text-gray-200 mx-2">連絡先</a>
+    </nav>
     <main>
         <form id="contactForm" method="POST">
             <label for="name">名前:</label>
@@ -78,6 +89,7 @@
             <textarea id="message" name="message" required></textarea>
             <button type="submit">送信</button>
         </form>
+        <button class="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4" onclick="location.href='index.html'">ホームに戻る</button>
     </main>
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(event) {
