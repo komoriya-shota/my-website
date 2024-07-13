@@ -3,60 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>支援フォーム</title>
+    <title>支援フォーム - 夢有民牧場クラウドファンディング</title>
     <link rel="stylesheet" href="styles/styles.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f0f4f8;
+            background: #f0f4f8;
             color: #333;
         }
 
         header {
             background: linear-gradient(to right, #ffb74d, #ff8a65);
             color: white;
-            padding: 1rem;
-            text-align: center;
         }
 
         header h1 {
-            margin: 0;
             font-size: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            font-weight: bold;
+            margin-left: 10px;
         }
 
         main {
             background: white;
-            max-width: 600px;
-            margin: 2rem auto;
-            padding: 2rem;
+            padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
+        .form-group {
+            margin-bottom: 20px;
         }
 
         label {
-            margin-bottom: 0.5rem;
+            display: block;
+            margin-bottom: 5px;
             font-weight: bold;
         }
 
-        input, textarea, button {
-            margin-bottom: 1rem;
-            padding: 0.5rem;
+        input[type="text"], input[type="email"], select {
+            width: 100%;
+            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            font-size: 1rem;
         }
 
         button {
             background: #ff8a65;
             color: white;
+            padding: 10px 20px;
             border: none;
+            border-radius: 4px;
             cursor: pointer;
-            transition: background 0.3s;
         }
 
         button:hover {
@@ -65,45 +66,40 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>支援フォーム</h1>
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">支援フォーム - 夢有民牧場クラウドファンディング</h1>
+        </div>
     </header>
-    <main>
-        <form id="supportForm" method="POST">
-            <label for="amount">支援額:</label>
-            <input type="number" id="amount" name="amount" required>
-            <label for="name">名前:</label>
-            <input type="text" id="name" name="donor" required>
-            <label for="email">メール:</label>
-            <input type="email" id="email" name="email" required>
-            <button type="submit">送信</button>
-        </form>
+    <main class="container mx-auto px-4 py-6">
+        <section class="mb-8">
+            <h2 class="text-xl font-bold mb-4">リターン品を選択し、支援してください</h2>
+            <form id="supportForm" action="STORES決済のURL" method="POST">
+                <div class="form-group">
+                    <label for="name">お名前</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">メールアドレス</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reward">リターン品を選択</label>
+                    <select id="reward" name="reward" required>
+                        <option value="">リターン品を選択してください</option>
+                        <option value="1000">リターン品A - 1000円</option>
+                        <option value="3000">リターン品B - 3000円</option>
+                        <option value="5000">リターン品C - 5000円</option>
+                    </select>
+                </div>
+                <button type="submit">支援する</button>
+            </form>
+        </section>
     </main>
     <script>
-        document.getElementById('supportForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = {
-                amount: document.getElementById('amount').value,
-                donor: document.getElementById('name').value,
-                email: document.getElementById('email').value
-            };
-
-            fetch('/donations', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('支援が送信されました');
-                document.getElementById('supportForm').reset();
-            })
-            .catch(error => {
-                console.error('エラー:', error);
-                alert('支援の送信に失敗しました');
-            });
+        document.getElementById('reward').addEventListener('change', function() {
+            const selectedReward = this.value;
+            // 支払い金額をSTORES決済用に設定する処理をここに追加します
         });
     </script>
 </body>
