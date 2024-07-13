@@ -18,6 +18,8 @@
         .progress-container {
             max-width: 100%;
             margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を追加 */
+            border-radius: 8px; /* 角を丸くする */
         }
 
         @media (min-width: 768px) {
@@ -86,13 +88,13 @@
     <header class="bg-white shadow">
         <div class="container mx-auto px-4 py-6 flex justify-between items-center">
             <h1 class="text-2xl font-bold">#沖縄の『ムーミン牧場』を救いたい！</h1>
+            <nav class="navbar flex justify-end p-4 rounded-lg shadow-md">
+                <a href="index.html" class="hover:text-gray-200 mx-2">ホーム</a>
+                <a href="about.html" class="hover:text-gray-200 mx-2">概要</a>
+                <a href="contact.html" class="hover:text-gray-200 mx-2">連絡先</a>
+            </nav>
         </div>
     </header>
-    <nav class="navbar flex justify-end p-4 rounded-lg shadow-md">
-        <a href="index.html" class="hover:text-gray-200 mx-2">ホーム</a>
-        <a href="about.html" class="hover:text-gray-200 mx-2">概要</a>
-        <a href="contact.html" class="hover:text-gray-200 mx-2">連絡先</a>
-    </nav>
     <main class="container mx-auto px-4 py-6">
         <section class="mb-8">
             <div class="slideshow-container">
