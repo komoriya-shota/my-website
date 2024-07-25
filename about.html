@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>夢有民牧場クラウドファンディング</title>
+    <title>概要 - 夢有民牧場クラウドファンディング</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-image: url('public/images/okinawa-background.jpg');
-            background-size: cover;
-            background-attachment: fixed;
+            background: #f0f4f8;
+            color: #333;
         }
 
         .progress-container {
@@ -96,55 +94,27 @@
             </nav>
         </div>
     </header>
-
     <main class="container mx-auto px-4 py-6">
         <section class="mb-8">
-            <h2 class="text-xl font-bold mb-4">プロジェクト概要</h2>
-            <p class="text-gray-600">
-                沖縄の美しい自然に囲まれた『夢有民牧場』は、訪れるすべての人々に素晴らしい思い出を提供してきました。しかし、今この大切な場所が存続の危機に瀕しています。私たちは、牧場で暮らすお馬たちの命と居場所を守り、未来を築くために、皆さんの温かいご支援を必要としています！
-            </p>
-            <p class="text-gray-600">
-                牧場では、訪れる方々が馬と触れ合い、癒しと学びを得ることができます。特に、子どもたちにとっては、自然との触れ合いや動物との交流を通じて、かけがえのない貴重な体験が得られる場所です。しかし、運営資金の不足や施設の老朽化により、牧場の存続が危ぶまれています。
-            </p>
-            <h3 class="text-lg font-bold mt-4">具体的な支援目標</h3>
-            <ul class="text-gray-600">
-                <li>施設の修繕：2,000,000円</li>
-                <li>新しい馬の導入：1,000,000円</li>
-            </ul>
-            <h3 class="text-lg font-bold mt-4">夢有民牧場の未来を守るために</h3>
-            <p class="text-gray-600">
-                『夢有民牧場』がこれからも多くの人々に愛され、沖縄の宝として輝き続けるために、どうかお力をお貸しください！皆さんの温かいご支援が、牧場の未来を守る大きな力となります。共に『夢有民牧場』の新しい未来を創り上げていきましょう！
-            </p>
+            <h2 class="text-xl font-bold mb-4">牧場の概要</h2>
+            <p>『夢有民牧場』は、沖縄の美しい自然の中で、動物たちと触れ合える素晴らしい場所です。私たちは、動物たちの健康と幸せを第一に考え、日々のケアを行っています。</p>
+            <p>このクラウドファンディングは、牧場の運営資金を集めるために立ち上げました。皆様の温かいご支援を心よりお待ちしております。</p>
         </section>
-
         <section class="mb-8">
-            <h2 class="text-xl font-bold mb-4">ハイライト</h2>
-            <div id="highlights" class="highlight-container">
-                <!-- ハイライト項目がここに追加されます -->
-            </div>
+            <h2 class="text-xl font-bold mb-4">プロジェクトの目的</h2>
+            <p>このプロジェクトの目的は、以下の通りです：</p>
+            <ul>
+                <li>動物たちの飼育環境の改善</li>
+                <li>新しい動物たちの受け入れ</li>
+                <li>牧場の施設の修繕と拡張</li>
+                <li>地域の子どもたちへの教育プログラムの実施</li>
+            </ul>
+        </section>
+        <section class="mb-8">
+            <h2 class="text-xl font-bold mb-4">支援の方法</h2>
+            <p>ご支援いただける方は、以下の「支援する」ボタンをクリックしてください。支援金額を入力し、必要な情報を記入して送信してください。</p>
+            <button class="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" onclick="location.href='support.html'">支援する</button>
         </section>
     </main>
-
-    <footer>
-        <p>&copy; 2023 夢有民牧場クラウドファンディング. All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const highlights = JSON.parse(localStorage.getItem('highlights')) || [];
-            const highlightsContainer = document.getElementById('highlights');
-            
-            highlights.forEach(highlight => {
-                const highlightItem = document.createElement('div');
-                highlightItem.className = 'highlight-item';
-                highlightItem.innerHTML = `
-                    <img src="${highlight.imageUrl}" alt="${highlight.title}">
-                    <h4 class="text-md font-bold mb-2">${highlight.title}</h4>
-                    <p class="text-gray-600">${highlight.description}</p>
-                `;
-                highlightsContainer.appendChild(highlightItem);
-            });
-        });
-    </script>
 </body>
 </html>

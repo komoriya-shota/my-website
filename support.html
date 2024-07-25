@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>夢有民牧場クラウドファンディング</title>
+    <title>日記 - 夢有民牧場クラウドファンディング</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-image: url('public/images/okinawa-background.jpg');
-            background-size: cover;
-            background-attachment: fixed;
+            background: #f0f4f8;
+            color: #333;
         }
 
         .progress-container {
@@ -98,8 +97,8 @@
     </header>
     <main class="container mx-auto px-4 py-6">
         <section class="mb-8">
-            <h2 class="text-xl font-bold mb-4">お問い合わせフォーム</h2>
-            <form id="contactForm" action="send_contact.php" method="post">
+            <h2 class="text-xl font-bold mb-4">リターン品を選択し、支援してください！</h2>
+            <form id="supportForm" action="STORES決済のURL" method="POST">
                 <div class="form-group">
                     <label for="name">お名前</label>
                     <input type="text" id="name" name="name" required>
@@ -109,13 +108,24 @@
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">メッセージ</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <label for="reward">リターン品を選択</label>
+                    <select id="reward" name="reward" required>
+                        <option value="">リターン品を選択してください</option>
+                        <option value="1000">リターン品A - 1000円</option>
+                        <option value="3000">リターン品B - 3000円</option>
+                        <option value="5000">リターン品C - 5000円</option>
+                    </select>
                 </div>
-                <button type="submit">送信</button>
+                <button type="submit">支援する</button>
             </form>
             <button class="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4" onclick="location.href='index.html'">ホームに戻る</button>
         </section>
     </main>
+    <script>
+        document.getElementById('reward').addEventListener('change', function() {
+            const selectedReward = this.value;
+            // 支払い金額をSTORES決済用に設定する処理をここに追加します
+        });
+    </script>
 </body>
 </html>
