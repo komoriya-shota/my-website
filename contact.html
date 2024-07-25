@@ -128,8 +128,29 @@
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
 
-            const mailtoLink = `mailto:komoriya25800419@gmail.com?subject=お問い合わせ&body=お名前: ${name}%0Aメールアドレス: ${email}%0Aメッセージ: ${message}`;
-            window.location.href = mailtoLink;
+            fetch('https://example.com/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    to: 'komoriya25800419@gmail.com',
+                    subject: 'お問い合わせ',
+                    body: `お名前: ${name}\nメールアドレス: ${email}\nメッセージ: ${message}`
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('メールが送信されました。');
+                } else {
+                    alert('メールの送信に失敗しました。');
+                }
+            })
+            .catch(error => {
+                console.error('エラー:', error);
+                alert('メールの送信に失敗しました。');
+            });
         });
     </script>
 </body>
