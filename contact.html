@@ -124,8 +124,6 @@
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
 
             fetch('https://example.com/send-email', {
@@ -136,7 +134,7 @@
                 body: JSON.stringify({
                     to: 'komoriya25800419@gmail.com',
                     subject: 'お問い合わせ',
-                    body: `お名前: ${name}\nメールアドレス: ${email}\nメッセージ: ${message}`
+                    body: message
                 })
             })
             .then(response => response.json())
