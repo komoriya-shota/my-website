@@ -3,81 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お問い合わせフォーム</title>
+    <title>夢有民牧場クラウドファンディング</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
+            background-image: url('public/images/okinawa-background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
         }
 
-        header {
-            background: linear-gradient(to right, #ffb74d, #ff8a65);
+        .progress-container {
+            max-width: 100%;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を追加 */
+            border-radius: 8px; /* 角を丸くする */
+        }
+
+        @media (min-width: 768px) {
+            .progress-container {
+                width: 100%;
+            }
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, rgba(255, 183, 77, 1) 0%, rgba(255, 138, 101, 1) 100%);
             color: white;
-            padding: 1rem;
-            text-align: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        nav a {
+        .navbar a {
             color: white;
             font-weight: bold;
-            margin-left: 10px;
         }
 
-        main {
-            background: white;
-            max-width: 600px;
-            margin: 2rem auto;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .slideshow-container img {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        form {
+        .btn {
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        .modal-container {
+            border-radius: 10px;
+        }
+
+        .modal-content {
+            background: linear-gradient(90deg, rgba(255, 183, 77, 1) 0%, rgba(255, 138, 101, 1) 100%);
+            color: white;
+        }
+
+        .thumbnail-container {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            margin-top: 10px;
         }
 
-        label {
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        input, textarea, button {
-            margin-bottom: 1rem;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        button {
-            background: #ff8a65;
-            color: white;
-            border: none;
+        .thumbnail {
             cursor: pointer;
-            transition: background 0.3s;
+            transition: transform 0.2s;
+            margin: 0 5px;
         }
 
-        button:hover {
-            background: #ff7043;
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        .thumbnail img {
+            width: 100px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800">
     <header class="bg-white shadow">
         <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">お問い合わせフォーム</h1>
+            <h1 class="text-2xl font-bold">#沖縄の『ムーミン牧場』を救いたい！</h1>
             <nav class="navbar flex justify-end p-4 rounded-lg shadow-md">
                 <a href="index.html" class="hover:text-gray-200 mx-2">ホーム</a>
                 <a href="about.html" class="hover:text-gray-200 mx-2">概要</a>
                 <a href="contact.html" class="hover:text-gray-200 mx-2">連絡先</a>
+                <a href="diary.html" class="hover:text-gray-200 mx-2">日記</a>
             </nav>
         </div>
     </header>
