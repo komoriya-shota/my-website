@@ -5,6 +5,11 @@ function openModal(modalID) {
     document.body.classList.add('modal-active');
 }
 
+function toggleMenu() {
+    const navbar = document.querySelector('.navbar');
+    navbar.classList.toggle('active');
+}
+
 function closeModal(modalID) {
     document.getElementById(modalID).classList.remove('opacity-100');
     document.getElementById(modalID).classList.add('opacity-0');

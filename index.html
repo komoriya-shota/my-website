@@ -361,9 +361,13 @@
             document.body.classList.remove('modal-active');
         }
 
-        let slideIndex = 0;
+        let slideIndex = 1;
         let slideInterval;
-        showSlides();
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            showSlides(slideIndex);
+            startSlideShow();
+        });
 
         function plusSlides(n) {
             showSlides(slideIndex += n);
@@ -398,9 +402,11 @@
             }, 5000);
         }
 
-        slideInterval = setInterval(() => {
-            plusSlides(1);
-        }, 5000);
+        function startSlideShow() {
+            slideInterval = setInterval(() => {
+                plusSlides(1);
+            }, 5000);
+        }
 
         document.getElementById('commentForm').addEventListener('submit', function(event) {
             event.preventDefault();
