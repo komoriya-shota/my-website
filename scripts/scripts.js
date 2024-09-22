@@ -100,24 +100,22 @@ document.getElementById('supportForm').addEventListener('submit', function(event
     const amount = document.getElementById('amount').value;
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
+    const address = document.getElementById('address').value; // 住所フィールドを追加
 
-    if (amount && name && email) {
-        fetch('http://localhost:3001/api/donations', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ amount, name, email })
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert('支援が完了しました！');
-            console.log(data);
-        })
-        .catch(error => {
-            alert('支援に失敗しました。');
-            console.error(error);
-        });
+    if (amount && name && email && address) { // 住所も必須項目に追加
+        const donation = {
+            date: new Date().toLocaleString(),
+            donor: name,
+            amount: `¥${amount}`,
+            address: address // 住所を保存
+        };
+
+        // ローカルストレージに保存
+        let donations = JSON.parse(localStorage.getItem('donations')) || [];
+        donations.push(donation);
+        localStorage.setItem('donations', JSON.stringify(donations));
+
+        alert('ご支援ありがとうございます！');
     } else {
         alert('全ての項目を入力してください。');
     }
@@ -165,54 +163,6 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         inquiryHistory.push(newInquiry);
         localStorage.setItem('inquiryHistory', JSON.stringify(inquiryHistory));
         alert('お問い合わせを送信しました！');
-    } else {
-        alert('全ての項目を入力してください。');
-    }
-});
-document.getElementById('supportForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const amount = document.getElementById('amount').value;
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-
-    if (amount && name && email) {
-        const donation = {
-            date: new Date().toLocaleString(),
-            donor: name,
-            amount: `¥${amount}`
-        };
-
-        // ローカルストレージに保存
-        let donations = JSON.parse(localStorage.getItem('donations')) || [];
-        donations.push(donation);
-        localStorage.setItem('donations', JSON.stringify(donations));
-
-        alert('ご支援ありがとうございます！');
-    } else {
-        alert('全ての項目を入力してください。');
-    }
-});
-
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const name = document.getElementById('contactName').value;
-    const email = document.getElementById('contactEmail').value;
-    const message = document.getElementById('contactMessage').value;
-
-    if (name && email && message) {
-        const contact = {
-            date: new Date().toLocaleString(),
-            name: name,
-            email: email,
-            message: message
-        };
-
-        // ローカルストレージに保存
-        let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
-        contacts.push(contact);
-        localStorage.setItem('contacts', JSON.stringify(contacts));
-
-        alert('お問い合わせありがとうございます！');
     } else {
         alert('全ての項目を入力してください。');
     }
