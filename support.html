@@ -1,131 +1,221 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日記 - 夢有民牧場クラウドファンディング</title>
+    
+   
+<meta charset="UTF-8">
+    
+    <
+
+   
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+<title>リターン - 夢有民牧場クラウドファンディング</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: #f0f4f8;
-            color: #333;
-        }
-
-        .progress-container {
-            max-width: 100%;
-            margin: 0 auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を追加 */
-            border-radius: 8px; /* 角を丸くする */
-        }
-
-        @media (min-width: 768px) {
-            .progress-container {
-                width: 100%;
-            }
-        }
-
-        .navbar {
-            background: linear-gradient(90deg, rgba(255, 183, 77, 1) 0%, rgba(255, 138, 101, 1) 100%);
-            color: white;
-        }
-
-        .navbar a {
-            color: white;
-            font-weight: bold;
-        }
-
-        .slideshow-container img {
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn {
-            transition: transform 0.2s;
-        }
-
-        .btn:hover {
-            transform: scale(1.1);
-        }
-
-        .modal-container {
-            border-radius: 10px;
-        }
-
-        .modal-content {
-            background: linear-gradient(90deg, rgba(255, 183, 77, 1) 0%, rgba(255, 138, 101, 1) 100%);
-            color: white;
-        }
-
-        .thumbnail-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        .thumbnail {
-            cursor: pointer;
-            transition: transform 0.2s;
-            margin: 0 5px;
-        }
-
-        .thumbnail:hover {
-            transform: scale(1.1);
-        }
-
-        .thumbnail img {
-            width: 100px;
-            height: auto;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-    </style>
+    
+   
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-800">
-    <header class="bg-white shadow">
-        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">#沖縄の『ムーミン牧場』を救いたい！</h1>
-            <nav class="navbar flex justify-end p-4 rounded-lg shadow-md">
-                <a href="index.html" class="hover:text-gray-200 mx-2">ホーム</a>
-                <a href="about.html" class="hover:text-gray-200 mx-2">概要</a>
-                <a href="contact.html" class="hover:text-gray-200 mx-2">連絡先</a>
-                <a href="diary.html" class="hover:text-gray-200 mx-2">日記</a>
-            </nav>
-        </div>
-    </header>
-    <main class="container mx-auto px-4 py-6">
-        <section class="mb-8">
-            <h2 class="text-xl font-bold mb-4">リターン品を選択し、支援してください！</h2>
-            <form id="supportForm" action="STORES決済のURL" method="POST">
-                <div class="form-group">
-                    <label for="name">お名前</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">メールアドレス</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="reward">リターン品を選択</label>
-                    <select id="reward" name="reward" required>
-                        <option value="">リターン品を選択してください</option>
-                        <option value="1000">リターン品A - 1000円</option>
-                        <option value="3000">リターン品B - 3000円</option>
-                        <option value="5000">リターン品C - 5000円</option>
-                    </select>
-                </div>
-                <button type="submit">支援する</button>
-            </form>
-            <button class="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4" onclick="location.href='index.html'">ホームに戻る</button>
-        </section>
-    </main>
-    <script>
-        document.getElementById('reward').addEventListener('change', function() {
-            const selectedReward = this.value;
-            // 支払い金額をSTORES決済用に設定する処理をここに追加します
-        });
-    </script>
+<body class="bg-gray-100 text-gray-800 font-roboto">
+    
+    <
+<header class="bg-white shadow">
+        
+        <
+<div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            
+            <
+<h1 class="text-2xl font-bold">#沖縄の『ムーミン牧場』を救いたい！</h1>
+            
+            <
+
+           
+<nav class="flex justify-end">
+                
+               
+<a href="index.html" class="text-white hover:text-gray-200 mx-2 px-3 py-2 rounded-lg bg-gradient-to-r from-yellow-400 to-orange-500">ホーム</a>
+                
+               
+<a href="about.html" class="text-white hover:text-gray-200 mx-2 px-3 py-2 rounded-lg bg-gradient-to-r from-yellow-400 to-orange-500">概要</a>
+                
+                <
+<a href="contact.html" class="text-white hover:text-gray-200 mx-2 px-3 py-2 rounded-lg bg-gradient-to-r from-yellow-400 to-orange-500">連絡先</a>
+                
+               
+<a href="diary.html" class="text-white hover:text-gray-200 mx-2 px-3 py-2 rounded-lg bg-gradient-to-r from-yellow-400 to-orange-500">日記</a>
+            
+            </
+</nav>
+        
+        </div
+
+        </
+</div>
+    
+   
+</header>
+    
+   
+<main class="container mx-auto px-4 py-6">
+        
+        <
+<section class="mb-8 bg-white p-6 shadow-md rounded-lg">
+            
+           
+<h2 class="text-xl font-bold mb-4">リターン品を選択し、支援してください！</h2>
+            
+           
+<form id="supportForm" action="STORES決済のURL" method="POST" class="space-y-4">
+                
+                <
+<div class="form-group">
+                    
+                    <
+
+   
+<label for="name" class="block text-sm font-medium text-gray-700">お名前</label>
+                    
+                  
+
+               
+
+         
+
+      
+
+   
+
+ 
+<input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                
+    
+
+ 
+</div>
+                
+  
+<div class="form-group">
+                    
+        
+
+   
+<label for="email" class="block text-sm font-medium text-gray-700">メールアドレス</label>
+                    
+                   
+
+ 
+<input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                
+     
+
+   
+</div>
+                
+  
+<div class="form-group">
+                    
+                    
+
+                 
+
+              
+
+            
+
+      
+
+   
+<label for="reward" class="block text-sm font-medium text-gray-700">リターン品を選択</label>
+                    
+                  
+
+               
+
+            
+
+         
+
+   
+<select id="reward" name="reward" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" required>
+                        
+                       
+
+                    
+
+                 
+
+              
+
+       
+
+    
+<option value="">リターン品を選択してください</option>
+                        
+      
+
+   
+<option value="1000">リターン品A - 1000円</option>
+                        
+            
+
+      
+
+   
+<option value="3000">リターン品B - 3000円</option>
+                        
+            
+
+         
+
+      
+
+   
+<option value="5000">リターン品C - 5000円</option>
+                    
+                    </s
+
+                    
+
+            
+
+        
+</select>
+                
+                </di
+
+                <
+
+             
+
+          
+
+      
+
+  
+</div>
+                
+                
+
+            
+
+        
+
+    
+<button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">支援する</button>
+            
+            </form
+</form>
+            <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded" onclick="location.href='index.html'">ホームに戻る</button>
+        
+        </section
+
+        </
+
+       
+</section>
+    
+ 
+</main>
 </body>
 </html>
