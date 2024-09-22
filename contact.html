@@ -104,18 +104,18 @@
     <main class="container mx-auto px-4 py-6">
         <section class="mb-8">
             <h2 class="text-xl font-bold mb-4">お問い合わせ</h2>
-            <form id="contactForm">
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700">お名前</label>
-                    <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+            <form id="contactForm" class="bg-white p-6 rounded-lg shadow-md">
+                <div class="form-group mb-4">
+                    <label for="name" class="block text-gray-700 font-bold mb-2">お名前</label>
+                    <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded" required>
                 </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-gray-700">メールアドレス</label>
-                    <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+                <div class="form-group mb-4">
+                    <label for="email" class="block text-gray-700 font-bold mb-2">メールアドレス</label>
+                    <input type="email" id="email" name="email" class="w-full p-2 border border-gray-300 rounded" required>
                 </div>
-                <div class="mb-4">
-                    <label for="message" class="block text-gray-700">メッセージ</label>
-                    <textarea id="message" name="message" rows="4" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required></textarea>
+                <div class="form-group mb-4">
+                    <label for="message" class="block text-gray-700 font-bold mb-2">メッセージ</label>
+                    <textarea id="message" name="message" class="w-full p-2 border border-gray-300 rounded" required></textarea>
                 </div>
                 <button type="submit" class="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">送信</button>
             </form>
