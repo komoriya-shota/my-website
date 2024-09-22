@@ -1,65 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>夢有民牧場クラウドファンディング</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-image: url('public/images/okinawa-background.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-        }
-
-        .progress-container {
-            max-width: 100%;
-            margin: 0 auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を追加 */
-            border-radius: 8px; /* 角を丸くする */
-        }
-
-        @media (min-width: 768px) {
-            .progress-container {
-                width: 100%;
-            }
-        }
-
-        .navbar {
-            display: none; /* 初期状態では非表示 */
-            background: linear-gradient(90deg, rgba(255, 183, 77, 1) 0%, rgba(255, 138, 101, 1) 100%);
-            color: white;
-        }
-
-        .navbar a {
-            color: white;
-            font-weight: bold;
-        }
-
-        .slideshow-container img {
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn {
-            transition: transform 0.2s;
-        }
-
-        .btn:hover {
-            transform: scale(1.1);
-        }
-
-        .modal-container {
-            border-radius: 10px;
-        }
-
-        .modal-content {
-            background: linear-gradient(90deg, rgba(255, 183, 77, 1) 0%, rgba(255, 138, 101, 1) 100%);
-            color: white;
-        }
+@ -62,26 +62,57 @@
 
         .thumbnail-container {
             display: flex;
@@ -86,7 +25,7 @@
 
         /* ハンバーガーメニューのスタイル */
         .hamburger {
-            display: flex;
+            display: none;
             flex-direction: column;
             cursor: pointer;
         }
@@ -117,19 +56,287 @@
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
-    <header class="bg-white shadow">
-        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">#沖縄の『ムーミン牧場』を救いたい！</h1>
+@ -94,146 +125,151 @@
+                <a href="contact.html" class="hover:text-gray-200 mx-2">連絡先</a>
+                <a href="diary.html" class="hover:text-gray-200 mx-2">日記</a>
+            </nav>
             <div class="hamburger" onclick="toggleMenu()">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
-            <nav class="navbar flex justify-end p-4 rounded-lg shadow-md">
-                <a href="index.html" class="hover:text-gray-200 mx-2">ホーム</a>
-                <a href="about.html" class="hover:text-gray-200 mx-2">概要</a>
-                <a href="contact.html" class="hover:text-gray-200 mx-2">連絡先</a>
-                <a href="diary.html" class="hover:text-gray-200 mx-2">日記</a>
-            </nav>
         </div>
     </header>
+    <main class="container mx-auto px-4 py-6">
+        <section class="mb-8">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="public/images/image1.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="public/images/image2.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="public/images/image3.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="public/images/image4.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="public/images/image5.jpg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="public/images/image6.jpg" style="width:100%">
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+            <div class="thumbnail-container" style="text-align:center">
+                <img class="thumbnail" src="public/images/image1.jpg" onclick="currentSlide(1)">
+                <img class="thumbnail" src="public/images/image2.jpg" onclick="currentSlide(2)">
+                <img class="thumbnail" src="public/images/image3.jpg" onclick="currentSlide(3)">
+                <img class="thumbnail" src="public/images/image4.jpg" onclick="currentSlide(4)">
+                <img class="thumbnail" src="public/images/image5.jpg" onclick="currentSlide(5)">
+                <img class="thumbnail" src="public/images/image6.jpg" onclick="currentSlide(6)">
+            </div>
+            <h2 class="text-xl font-bold mt-4">沖縄の思い出の場所を守りたい！<br>お馬たちの命と居場所を守り、一緒に『夢有民牧場』の未来を作りませんか？</h2>
+            <div class="mt-4">
+                <button class="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transform transition-transform duration-300 hover:scale-110" onclick="location.href='support.html'">支援する</button>
+                <button class="btn bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transform transition-transform duration-300 hover:scale-110" onclick="openModal('shareModal')">シェアする</button>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="text-lg font-bold mb-4">～進捗状況～</h3>
+            <div class="progress-container bg-white p-6 rounded-lg shadow-lg relative">
+                <div class="progress-details text-center">
+                    <div class="text-lg text-gray-700 font-bold mb-2">現在の支援金額</div>
+                    <div class="text-5xl font-bold text-green-700 mb-2">¥1,229,700</div>
+                    <div class="text-lg text-gray-700 mb-4 text-right">募集終了まで残り: 38日</div>
+                    <div class="progress-bar bg-gray-200 rounded-full h-6 mb-4 relative">
+                        <div class="progress-bar-fill bg-green-500 h-6 rounded-full text-white text-center" style="width: 40%;">40%</div>
+                    </div>
+                    <div class="flex justify-between text-gray-700 mt-2">
+                        <div class="text-lg">目標金額: ¥5,000,000</div>
+                        <div class="text-lg">支援者数: 126人</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="text-lg font-bold mb-4">～プロジェクト概要～
+            </h3>
+            <p class="text-gray-600">
+                沖縄の美しい自然に囲まれた<span class="text-blue-500 font-bold">『夢有民牧場』</span>は、訪れるすべての人々に素晴らしい思い出を提供してきました。しかし、今この大切な場所が存続の危機に瀕しています。私たちは、牧場で暮らすお馬たちの命と居場所を守り、未来を築くために、皆さんの温かいご支援を必要としています！
+                <br><br>
+                牧場では、訪れる方々が馬と触れ合い、癒しと学びを得ることができます。特に、子どもたちにとっては、自然との触れ合いや動物との交流を通じて、かけがえのない貴重な体験が得られる場所です。しかし、運営資金の不足や施設の老朽化により、牧場の存続が危ぶまれています。。。
+                <br><br>
+                <strong class="text-red-500">具体的な支援目標</strong>
+                <br>
+                私たちは、クラウドファンディングを通じて<span class="text-green-500 font-bold">3,000,000円</span>を目指しています。この資金は以下のように活用されます：
+                <ul class="list-disc ml-6 mt-2">
+                    <li>施設の修繕：<span class="text-green-500 font-bold">2,000,000円</span></li>
+                    <li>新しい馬の導入：<span class="text-green-500 font-bold">1,000,000円</span></li>
+                </ul>
+                <br>
+                <strong class="text-red-500">夢有民牧場の未来を守るために</strong>
+                <br>
+                『夢有民牧場』がこれからも多くの人々に愛され、沖縄の宝として輝き続けるために、どうかお力をお貸しください！皆さんの温かいご支援が、牧場の未来を守る大きな力となります。共に『夢有民牧場』の新しい未来を創り上げていきましょう！
+                <br><br>
+                <strong class="text-red-500">特別なストーリー</strong>
+                <br>
+                ここで、私たちの牧場で育った馬、<span class="text-blue-500 font-bold">サクラ</span>のストーリーを紹介させてください。サクラは子どもたちに大人気で、その優しい性格と美しい姿が多くの人々に愛されています。サクラと触れ合った子どもたちは、自然の中でのびのびとした時間を過ごし、動物との絆を深めています。しかし、施設の老朽化により、サクラの居場所が危ぶまれています。。。サクラを守り、次の世代にこの素晴らしい体験を引き継ぐために、皆さんのご支援が必要です！
+                <br><br>
+                <strong class="text-red-500">実際の雰囲気</strong>
+                <br>
+                ぜひ、以下のリンクから牧場の写真やビデオをご覧ください。美しい自然に囲まれた牧場の風景や、かわいい動物たちの姿をご覧いただけます！これらのビジュアルは、牧場の魅力をより一層感じていただけることでしょう。
+                <br><br>
+                <strong class="text-red-500">皆さんと共に</strong>
+                <br>
+                私たちの夢有民牧場は、ただの場所ではありません。それは笑顔と癒し、そして学びの場です。訪れる人々の笑顔を守り、未来の世代にもこの素晴らしい体験を届けるために、どうかお力をお貸しください！皆さんのご支援が、牧場の未来を築くための大きな力となります。共に、夢有民牧場の新しい未来を創り上げていきましょう。どうぞよろしくお願いいたします！
+            </p>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="text-lg font-bold mb-4">リターンについて</h3>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <img src="public/images/image9.jpg" alt="リターン画像" class="w-full h-64 object-cover rounded-lg mb-4">
+                <h4 class="text-md font-bold mb-2">リターンの内容</h4>
+                <p class="text-gray-600">ご支援いただいた方々には、心から感謝申し上げます。皆様の温かいご支援がなければ、牧場の未来を守ることはできません。ご支援いただいた方々には、感謝の気持ちとして特別なリワードをご用意しています。例えば、サクラとの記念撮影や牧場の特製グッズなど、多くのリワードをご用意しております。</p>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="text-lg font-bold mb-4">チーム紹介</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="public/images/image4.jpg" alt="チーム画像1" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h4 class="text-md font-bold mb-2">チームメンバー1</h4>
+                    <p class="text-gray-600">チームメンバー1の紹介文です。彼/彼女の経歴や役割について記載します。</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <img src="public/images/image5.jpg" alt="チーム画像2" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h4 class="text-md font-bold mb-2">チームメンバー2</h4>
+                    <p class="text-gray-600">チームメンバー2の紹介文です。彼/彼女の経歴や役割について記載します。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="text-lg font-bold mb-4">コメント</h3>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <form id="commentForm" class="mb-4">
+                    <textarea id="commentText" class="w-full p-2 rounded border" rows="4" placeholder="コメントを入力してください"></textarea>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-2 hover:bg-blue-600">コメントを投稿</button>
+                </form>
+                <div id="commentsList">
+                    <!-- コメントリストがここに追加されます -->
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h3 class="text-lg font-bold mb-4">よくある質問</h3>
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h4 class="text-md font-bold mb-2">Q1: 支援する方法は？</h4>
+                <p class="text-gray-600 mb-4">支援するボタンを押して、支援額を入力し、支払い情報を入力してください。</p>
+                <h4 class="text-md font-bold mb-2">Q2: 支援金の使い道は？</h4>
+                <p class="text-gray-600">支援金は主に施設の修繕と新しい馬の導入に使われます。</p>
+            </div>
+        </section>
+
+        <section class="mb-8">
+@ -274,126 +310,131 @@
+                        <label for="name" class="block text-gray-700">お名前</label>
+                        <input type="text" id="name" name="donor" class="w-full p-2 border rounded" placeholder="お名前を入力">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700">メールアドレス</label>
+                        <input type="email" id="email" name="email" class="w-full p-2 border rounded" placeholder="メールアドレスを入力">
+                    </div>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">支援を送信</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="shareModal" class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center opacity-0 pointer-events-none">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+        <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+            <div class="modal-content py-4 text-left px-6">
+                <div class="flex justify-between items-center pb-3">
+                    <p class="text-2xl font-bold">シェアする</p>
+                    <div class="modal-close cursor-pointer z-50" onclick="closeModal('shareModal')">
+                        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                            <path d="M14.53 4.53L10.06 9l4.47 4.47-1.06 1.06L9 10.06l-4.47 4.47-1.06-1.06L7.94 9 3.47 4.53l1.06-1.06L9 7.94l4.47-4.47z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full" onclick="shareOnSNS('twitter')">Twitterでシェア</button>
+                </div>
+                <div class="mb-4">
+                    <button class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 w-full" onclick="shareOnSNS('facebook')">Facebookでシェア</button>
+                </div>
+                <div class="mb-4">
+                    <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full" onclick="shareOnSNS('line')">LINEでシェア</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/scripts.js"></script>
+    <script>
+        function openModal(modalID) {
+            document.getElementById(modalID).classList.remove('opacity-0');
+            document.getElementById(modalID).classList.add('opacity-100');
+            document.getElementById(modalID).classList.remove('pointer-events-none');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeModal(modalID) {
+            document.getElementById(modalID).classList.remove('opacity-100');
+            document.getElementById(modalID).classList.add('opacity-0');
+            document.getElementById(modalID).classList.add('pointer-events-none');
+            document.body.classList.remove('modal-active');
+        }
+
+        let slideIndex = 0;
+        let slideInterval;
+        showSlides();
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+            resetSlideInterval();
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+            resetSlideInterval();
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let thumbnails = document.getElementsByClassName("thumbnail");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < thumbnails.length; i++) {
+                thumbnails[i].className = thumbnails[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            thumbnails[slideIndex-1].className += " active";
+        }
+
+        function resetSlideInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(() => {
+                plusSlides(1);
+            }, 5000);
+        }
+
+        slideInterval = setInterval(() => {
+            plusSlides(1);
+        }, 5000);
+
+        document.getElementById('commentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const commentText = document.getElementById('commentText').value;
+            const commentList = document.getElementById('commentsList');
+            const newComment = document.createElement('div');
+            newComment.classList.add('bg-gray-100', 'p-2', 'rounded', 'mb-2');
+            
+            // ユーザー名と時間を取得
+            const userName = '匿名ユーザー'; // 将来的にはログインしたユーザーの名前を取得
+            const currentTime = new Date().toLocaleString();
+            
+            newComment.innerHTML = `<p><strong>${userName}</strong> (${currentTime})</p><p>${commentText}</p>`;
+            commentList.appendChild(newComment);
+            document.getElementById('commentText').value = '';
+        });
+
+        function shareOnSNS(platform) {
+            const url = window.location.href;
+            let shareURL = '';
+            if (platform === 'twitter') {
+                shareURL = `https://twitter.com/share?url=${encodeURIComponent(url)}`;
+            } else if (platform === 'facebook') {
+                shareURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            } else if (platform === 'line') {
+                shareURL = `https://line.me/R/msg/text/?${encodeURIComponent(url)}`;
+            }
+            window.open(shareURL, '_blank');
+        }
+
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
