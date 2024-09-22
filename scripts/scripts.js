@@ -4,29 +4,31 @@ function openModal(modalID) {
     document.getElementById(modalID).classList.remove('pointer-events-none');
     document.body.classList.add('modal-active');
 }
-
+}
 function closeModal(modalID) {
     document.getElementById(modalID).classList.remove('opacity-100');
     document.getElementById(modalID).classList.add('opacity-0');
     document.getElementById(modalID).classList.add('pointer-events-none');
     document.body.classList.remove('modal-active');
 }
-
+}
 let slideIndex = 1;
 let slideInterval;
-showSlides(slideIndex);
 
+showSlides(slideIndex);
+showSlides(slideIndex);
 function plusSlides(n) {
     showSlides(slideIndex += n);
     resetSlideInterval();
 }
-
+}
 function currentSlide(n) {
     showSlides(slideIndex = n);
     resetSlideInterval();
 }
-
+}
 function showSlides(n) {
+
     let i;
     let slides = document.getElementsByClassName("mySlides");
     let thumbnails = document.getElementsByClassName("thumbnail");
@@ -47,20 +49,21 @@ function startSlideShow() {
         showSlides();
     }, 5000);
 }
-
+}
 function resetSlideInterval() {
+
     clearInterval(slideInterval);
     slideInterval = setInterval(() => {
         plusSlides(1);
     }, 5000);
 }
-
+}
 slideInterval = setInterval(() => {
     plusSlides(1);
 }, 5000);
 showSlides();
 startSlideShow();
-
+startSlideShow();
 document.getElementById('commentForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const commentText = document.getElementById('commentText').value;
@@ -71,16 +74,16 @@ document.getElementById('commentForm').addEventListener('submit', function(event
     const commentList = document.getElementById('commentsList');
     const newComment = document.createElement('div');
     newComment.classList.add('bg-gray-100', 'p-2', 'rounded', 'mb-2');
-
+    newComment.classList.add('bg-gray-100', 'p-2', 'rounded', 'mb-2');
     // ユーザー名と時間を取得
     const userName = '匿名ユーザー'; // 将来的にはログインしたユーザーの名前を取得
     const currentTime = new Date().toLocaleString();
-
+    const currentTime = new Date().toLocaleString();
     newComment.innerHTML = `<p><strong>${userName}</strong> (${currentTime})</p><p>${commentText}</p>`;
     commentList.appendChild(newComment);
     document.getElementById('commentText').value = '';
 });
-
+});
 function shareOnSNS(platform) {
     const url = window.location.href;
     let shareURL = '';
@@ -93,41 +96,46 @@ function shareOnSNS(platform) {
     }
     window.open(shareURL, '_blank');
 }
-
+}
 // 支援フォームの送信イベント
 document.getElementById('supportForm').addEventListener('submit', function(event) {
+
     event.preventDefault();
     const amount = document.getElementById('amount').value;
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const address = document.getElementById('address').value; // 住所フィールドを追加
-
+    const address = document.getElementById('address').value; // 住所フィールドを追加
     if (amount && name && email && address) { // 住所も必須項目に追加
+
         const donation = {
             date: new Date().toLocaleString(),
             donor: name,
             amount: `¥${amount}`,
             address: address // 住所を保存
         };
+        })
 
         // ローカルストレージに保存
         let donations = JSON.parse(localStorage.getItem('donations')) || [];
         donations.push(donation);
         localStorage.setItem('donations', JSON.stringify(donations));
 
+        })
         alert('ご支援ありがとうございます！');
     } else {
         alert('全ての項目を入力してください。');
     }
 });
-
+        alert('全ての項目を入力してください。');
 // お問い合わせフォームの送信イベント
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const name = document.getElementById('contactName').value;
     const email = document.getElementById('contactEmail').value;
-    const message = document.getElementById('contactMessage').value;
 
+    const message = document.getElementById('contactMessage').value;
+    const name = document.getElementById('contactName').value;
     if (name && email && message) {
         fetch('http://localhost:3001/api/contacts', {
             method: 'POST',
@@ -135,6 +143,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ name, email, message })
+
         })
         .then(response => response.json())
         .then(data => {
@@ -142,6 +151,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
             console.log(data);
         })
         .catch(error => {
+
             alert('お問い合わせの送信に失敗しました。');
             console.error(error);
         });
@@ -149,14 +159,16 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         alert('全ての項目を入力してください。');
     }
 });
-
+        alert('全ての項目を入力してください。');
 // お問い合わせ機能
+
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const name = document.getElementById('contactName').value;
+
     const email = document.getElementById('contactEmail').value;
     const message = document.getElementById('contactMessage').value;
-
+    const name = document.getElementById('contactName').value;
     if (name && email && message) {
         let inquiryHistory = JSON.parse(localStorage.getItem('inquiryHistory')) || [];
         const newInquiry = { date: new Date().toLocaleString(), name, email, message };
@@ -167,4 +179,3 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         alert('全ての項目を入力してください。');
     }
 });
-
