@@ -168,3 +168,8 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         alert('全ての項目を入力してください。');
     }
 });
+
+function toggleMenu() {
+    const navbar = document.querySelector('.navbar');
+    navbar.classList.toggle('active');
+}
