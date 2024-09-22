@@ -15,8 +15,10 @@ function closeModal(modalID) {
 let slideIndex = 1;
 let slideInterval;
 
-showSlides(slideIndex);
-showSlides(slideIndex);
+document.addEventListener('DOMContentLoaded', (event) => {
+    showSlides(slideIndex);
+    startSlideShow();
+});
 function plusSlides(n) {
     showSlides(slideIndex += n);
     resetSlideInterval();
