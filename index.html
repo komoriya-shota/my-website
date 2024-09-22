@@ -82,6 +82,37 @@
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
+
+        /* ハンバーガーメニューのスタイル */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            height: 3px;
+            width: 25px;
+            background-color: #333;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navbar.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -94,6 +125,11 @@
                 <a href="contact.html" class="hover:text-gray-200 mx-2">連絡先</a>
                 <a href="diary.html" class="hover:text-gray-200 mx-2">日記</a>
             </nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
         </div>
     </header>
     <main class="container mx-auto px-4 py-6">
@@ -393,6 +429,11 @@
                 shareURL = `https://line.me/R/msg/text/?${encodeURIComponent(url)}`;
             }
             window.open(shareURL, '_blank');
+        }
+
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
         }
     </script>
 </body>
