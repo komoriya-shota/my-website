@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
     <style>
+        /* Bodyのスタイル設定 */
         body {
             font-family: 'Roboto', sans-serif;
             background-image: url('public/images/okinawa-background.jpg');
@@ -15,6 +16,7 @@
             background-attachment: fixed;
         }
 
+        /* プログレスコンテナのスタイル設定 */
         .progress-container {
             max-width: 100%;
             margin: 0 auto;
@@ -22,28 +24,33 @@
             border-radius: 8px; /* 角を丸くする */
         }
 
+        /* メディアクエリ: 画面幅が768px以上の場合のスタイル設定 */
         @media (min-width: 768px) {
             .progress-container {
                 width: 100%;
             }
         }
 
+        /* ナビゲーションバーのスタイル設定 */
         .navbar {
             display: none; /* 初期状態で非表示 */
             flex-direction: column;
             width: 100%;
         }
 
+        /* ナビゲーションバーがアクティブな場合のスタイル設定 */
         .navbar.active {
             display: flex;
         }
 
+        /* ハンバーガーメニューのスタイル設定 */
         .hamburger {
             display: flex;
             flex-direction: column;
             cursor: pointer;
         }
 
+        /* ハンバーガーメニューのバーのスタイル設定 */
         .bar {
             height: 3px;
             width: 25px;
@@ -52,6 +59,7 @@
             transition: 0.4s;
         }
 
+        /* メディアクエリ: 画面幅が769px以上の場合のスタイル設定 */
         @media (min-width: 769px) {
             .navbar {
                 display: flex; /* デスクトップでは常に表示 */
@@ -63,49 +71,59 @@
             }
         }
 
+        /* ナビゲーションバーのリンクのスタイル設定 */
         .navbar a {
             color: white;
             font-weight: bold;
         }
 
+        /* スライドショーコンテナ内の画像のスタイル設定 */
         .slideshow-container img {
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
+        /* ボタンのスタイル設定 */
         .btn {
             transition: transform 0.2s;
         }
 
+        /* ボタンのホバー時のスタイル設定 */
         .btn:hover {
             transform: scale(1.1);
         }
 
+        /* モーダルコンテナのスタイル設定 */
         .modal-container {
             border-radius: 10px;
         }
 
+        /* モーダルコンテンツのスタイル設定 */
         .modal-content {
             background: linear-gradient(90deg, rgba(255, 183, 77, 1) 0%, rgba(255, 138, 101, 1) 100%);
             color: white;
         }
 
+        /* サムネイルコンテナのスタイル設定 */
         .thumbnail-container {
             display: flex;
             justify-content: center;
             margin-top: 10px;
         }
 
+        /* サムネイルのスタイル設定 */
         .thumbnail {
             cursor: pointer;
             transition: transform 0.2s;
             margin: 0 5px;
         }
 
+        /* サムネイルのホバー時のスタイル設定 */
         .thumbnail:hover {
             transform: scale(1.1);
         }
 
+        /* サムネイル画像のスタイル設定 */
         .thumbnail img {
             width: 100px;
             height: auto;
@@ -116,14 +134,16 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
     <header class="bg-white shadow">
-        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">#沖縄の『ムーミン牧場』を救いたい！</h1>
+        <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
+            <h1 class="text-2xl font-bold flex-grow mb-4 md:mb-0">#沖縄の『ムーミン牧場』を救いたい！</h1>
             <nav class="navbar flex justify-end p-4 rounded-lg shadow-md">
                 <a href="index.html" class="hover:text-gray-200 mx-2">ホーム</a>
                 <a href="about.html" class="hover:text-gray-200 mx-2">概要</a>
                 <a href="contact.html" class="hover:text-gray-200 mx-2">連絡先</a>
                 <a href="diary.html" class="hover:text-gray-200 mx-2">日記</a>
             </nav>
+        </div>
+    </header>
             <div class="hamburger" onclick="toggleMenu()">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -346,6 +366,7 @@
 
     <script src="scripts/scripts.js"></script>
     <script>
+        // モーダルを開く関数
         function openModal(modalID) {
             document.getElementById(modalID).classList.remove('opacity-0');
             document.getElementById(modalID).classList.add('opacity-100');
@@ -353,6 +374,7 @@
             document.body.classList.add('modal-active');
         }
 
+        // モーダルを閉じる関数
         function closeModal(modalID) {
             document.getElementById(modalID).classList.remove('opacity-100');
             document.getElementById(modalID).classList.add('opacity-0');
@@ -360,20 +382,24 @@
             document.body.classList.remove('modal-active');
         }
 
+        // スライドショーのインデックスとインターバルを初期化
         let slideIndex = 0;
         let slideInterval;
         showSlides();
 
+        // スライドを進める関数
         function plusSlides(n) {
             showSlides(slideIndex += n);
             resetSlideInterval();
         }
 
+        // 現在のスライドを表示する関数
         function currentSlide(n) {
             showSlides(slideIndex = n);
             resetSlideInterval();
         }
 
+        // スライドを表示する関数
         function showSlides(n) {
             let i;
             let slides = document.getElementsByClassName("mySlides");
@@ -390,6 +416,7 @@
             thumbnails[slideIndex-1].className += " active";
         }
 
+        // スライドインターバルをリセットする関数
         function resetSlideInterval() {
             clearInterval(slideInterval);
             slideInterval = setInterval(() => {
@@ -397,10 +424,12 @@
             }, 5000);
         }
 
+        // スライドショーのインターバルを設定
         slideInterval = setInterval(() => {
             plusSlides(1);
         }, 5000);
 
+        // コメントフォームの送信イベントリスナーを追加
         document.getElementById('commentForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const commentText = document.getElementById('commentText').value;
@@ -417,6 +446,7 @@
             document.getElementById('commentText').value = '';
         });
 
+        // SNSでシェアする関数
         function shareOnSNS(platform) {
             const url = window.location.href;
             let shareURL = '';
@@ -430,6 +460,7 @@
             window.open(shareURL, '_blank');
         }
 
+        // メニューをトグルする関数
         function toggleMenu() {
             const navbar = document.querySelector('.navbar');
             navbar.classList.toggle('active');
